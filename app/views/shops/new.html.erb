@@ -1,0 +1,7 @@
+<h1>Enter Shop Information</h1>
+
+<%= render partial: 'zip', locals: { method: :get, button_text: 'Search For Shops'} %>
+
+<% if @shops == nil %>
+  <%= render partial: 'shop', locals: { method: :post, button_text: 'Next'} %>
+<% end %>
