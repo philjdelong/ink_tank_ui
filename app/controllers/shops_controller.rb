@@ -2,6 +2,7 @@ class ShopsController < ApplicationController
 
   def new
     if params["/shops"]
+      @new_shop = Shop.new(zip: params["/shops"][:zip_code])
       if Shop.exists?(zip: params["/shops"][:zip_code])
         @shops = Shop.where(zip: params["/shops"][:zip_code])
       else
@@ -16,7 +17,7 @@ class ShopsController < ApplicationController
       flash[:notice] = 'Shop successfully created'
       redirect_to new_shop_user_path(shop.id)
     else
-      flash[:error] = shop.errors.to_full_sentences
+      flash[:error] = shop.errors.full_messages.to_sentence
     end
   end
 
@@ -31,6 +32,6 @@ class ShopsController < ApplicationController
   private
 
   def shop_params
-    params.permit(:street_address, :city, :phone_number)
+    params.permit(:street_address, :city, :phone_number, :zip)
   end
 end
