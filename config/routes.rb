@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   get '/', to: 'welcome#index'
 
-  get 'auth/github', as: 'provider_name_login'
   get '/auth/:provider/callback', to: 'sessions#create'
 
   resources :shops, only: [:show, :new, :index, :create] do
