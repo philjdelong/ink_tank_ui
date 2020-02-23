@@ -1,0 +1,17 @@
+<div align='right' class="search">  
+   <%= form_tag "/", method: :get do %>
+      <%= label_tag :search_tattoos %>
+      <%= text_field_tag :search_tattoos %>
+      <%= submit_tag 'Find Images' %>
+   <% end %>
+</div>  
+
+<% if @image_results_list %>
+   <section align='center' class='images'>
+      <% @image_results_list.each do |image_result| %>
+         <section class='image'>
+            <img src= <%= image_result[:original] %>>
+         </section>
+      <% end %>
+   </section>
+<% end %>

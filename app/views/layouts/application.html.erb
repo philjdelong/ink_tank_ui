@@ -12,19 +12,36 @@
   <body>
     <nav class="master_nav">
 
-      <div class="links">
-        <%= link_to "Artists"%>**
-        <%= link_to "Locations"%>**
-        <%= link_to "Styles"%>**
-        <%= link_to "Login"%>**
-        <%= link_to "Register"%>
-      </div> 
-
       <div class="logo">
         <%= link_to(image_tag('it_logo_bw.png', alt: "Ink Tank Logo"), "/") %>
       </div>
-    </nav>
+        <br>
 
+      <div align='center' class="link">
+        <%= link_to "Artists"%>
+      </div> 
+        <br>
+
+      <div align='center' class="link">
+        <%= link_to "Locations"%>
+      </div> 
+        <br>
+
+      <div align='center' class="link">
+        <%= link_to "Styles"%>
+      </div> 
+        <br>
+
+      <div align='center' class="link">
+        <%= link_to "Login"%>
+      </div> 
+        <br>
+
+      <div align='center' class="link">
+        <%= link_to "Register"%>
+      </div> 
+        <br>
+    </nav>
     <%= yield %>
   </body>
 </html>
