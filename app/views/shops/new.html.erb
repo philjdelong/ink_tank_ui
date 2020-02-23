@@ -2,6 +2,15 @@
 
 <%= render partial: 'zip', locals: { method: :get, button_text: 'Search For Shops'} %>
 
-<% if @shops == nil %>
+<% if @new_shop != nil %>
+<% if @shops != nil %>
+  <% @shops.each do |shop| %>
+    <ul class = 'shop'>
+      <li><p>Shop name: <%= shop.name %></p></li>
+      <li><p>Shop address: <%= shop.street_address %></p></li>
+    </ul>
+  <% end %>
+<% end %>
+  <p>Shop not listed? Add it!</p>
   <%= render partial: 'shop', locals: { method: :post, button_text: 'Next'} %>
 <% end %>
