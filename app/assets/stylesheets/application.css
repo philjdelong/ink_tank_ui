@@ -26,6 +26,7 @@ nav.master_nav {
 }
 
 .images {
+   padding-top: 5%;
    float: right;
    width: 70%;
 }
@@ -47,15 +48,17 @@ nav.master_nav {
    padding-top: 1%;
    padding-right: 5%;
    padding-left: 5%;
-   font-size: 60px;
-   float: right;
+   font-size: 30px;
+   color: mediumaquamarine;
+   font-family: 'Courier New', Courier, monospace;
 }
 
 .search {
-   float: right;
+   position: fixed;
    width: 70%;
    padding-top: 2%;
    padding-bottom: 2%;
    font-size: 30px;
    color: lime;
+   font-family: 'Courier New', Courier, monospace;
 }
