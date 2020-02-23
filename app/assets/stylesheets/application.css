@@ -44,12 +44,12 @@ nav.master_nav {
    width: 100%;
 }
 
-.link {
+.link a{
    padding-top: 1%;
    padding-right: 5%;
    padding-left: 5%;
    font-size: 30px;
-   color: mediumaquamarine;
+   color: rgb(102, 166, 205);
    font-family: 'Courier New', Courier, monospace;
 }
 
@@ -59,6 +59,6 @@ nav.master_nav {
    padding-top: 2%;
    padding-bottom: 2%;
    font-size: 30px;
-   color: lime;
+   color: rgb(102, 166, 205);
    font-family: 'Courier New', Courier, monospace;
 }
