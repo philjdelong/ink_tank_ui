@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
   def new
-    #maybe don't need this now with default shop?
-    @shop = Shop.find(params[:shop_id])
+    @shop = Shop.find(params[:id])
+    @user = current_user
   end
 
   def create
+
   end
 
   def index
@@ -14,5 +15,6 @@ class UsersController < ApplicationController
   end
 
   def update
+    current_user.complete_user(params)
   end
 end
