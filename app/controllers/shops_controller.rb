@@ -15,8 +15,9 @@ class ShopsController < ApplicationController
     #investigate why shop_params are returning as blank, used model method as workaround
     shop = Shop.create_shop(params)
     if shop.save
+      current_user.update_user_shop(current_user, shop.id)
       flash[:notice] = 'Shop successfully created'
-      redirect_to complete_shop_user_path(shop.id, current_user.id)
+      redirect_to new_user_path
     else
       flash[:error] = shop.errors.full_messages.to_sentence
     end
