@@ -12,10 +12,11 @@ class ShopsController < ApplicationController
   end
 
   def create
-    shop = Shop.create(shop_params)
+    #investigate why shop_params are returning as blank, used model method as workaround
+    shop = Shop.create_shop(params)
     if shop.save
       flash[:notice] = 'Shop successfully created'
-      redirect_to new_shop_user_path(shop.id)
+      redirect_to complete_shop_user_path(shop.id, current_user.id)
     else
       flash[:error] = shop.errors.full_messages.to_sentence
     end
@@ -29,7 +30,6 @@ class ShopsController < ApplicationController
     @shops = Shop.all
   end
 
-  private
 
   def shop_params
     params.permit(:street_address, :city, :phone_number, :zip)
