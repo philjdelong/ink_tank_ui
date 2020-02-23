@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 2020_02_22_173627) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "tattooStyles"
-    t.float "pricePerHour"
+    t.string "tattoo_styles"
+    t.float "price_per_hour"
     t.string "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
