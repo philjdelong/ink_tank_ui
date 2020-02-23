@@ -4,8 +4,8 @@ class CreateShops < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :street_address
       t.string :city
-      t.integer :zip
-      t.integer :phone_number
+      t.string :zip
+      t.string :phone_number
 
       t.timestamps
     end
