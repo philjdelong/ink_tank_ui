@@ -1,4 +1,4 @@
-<div class="search">  
+<div align='center' class="search">  
    <%= form_tag "/", method: :get do %>
       <%= label_tag :search_tattoos %>
       <%= text_field_tag :search_tattoos %>
@@ -7,7 +7,7 @@
 </div>  
 
 <% if @image_results_list %>
-   <section class='images'>
+   <section align='center' class='images'>
       <% @image_results_list.each do |image_result| %>
          <section class='image'>
             <img src= <%= image_result[:original] %>>
