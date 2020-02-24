@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :update, :show]
 
   resources :shops, only: [:show, :new, :index, :create] do
-    resources :users, only: [:new, :create]
+    resources :users, only: [:new, :create, :show]
   end
 end
