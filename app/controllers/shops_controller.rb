@@ -3,10 +3,8 @@ class ShopsController < ApplicationController
   def new
     @shop = Shop.new
     if params["/shops"]
-      render locals: { new_shop: Shop.new(zip: params["/shops"][:zip_code]),
-                       shops: Shop.where(zip: params["/shops"][:zip_code])}
-    else
-      flash[:notice] = 'No shops found in that zipcode. Please create one.'
+      @new_shop = Shop.new(zip: params["/shops"][:zip_code])
+      @shops = Shop.where(zip: params["/shops"][:zip_code])
     end
   end
 
