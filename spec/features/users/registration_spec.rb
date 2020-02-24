@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe 'Registration' do
   it 'user can register' do
+    shop = Shop.create(name: 'Default shop', street_address: '123 Main', city: 'Denver', zip: '80206', phone_number: '123456789')
+    user = User.create(uid: '12345', token: 'token', login: 'example@example.com' )
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
     visit new_shop_path
     expect(page).to have_content('Enter Shop Information')
 
@@ -19,7 +23,7 @@ RSpec.describe 'Registration' do
     fill_in :shop_phone_number, with: '123456789'
 
     click_on('Next')
-    
+
     fill_in :user_name, with: 'John'
     fill_in :user_tattoo_styles, with: 'traditional'
     fill_in :user_price_per_hour, with: 100.00
@@ -29,11 +33,11 @@ RSpec.describe 'Registration' do
 
     expect(page).to have_content('Name: John')
     expect(page).to have_content('Tattoo styles: traditional')
-    expect(page).to have_content('Price per hour: $100.00')
+    expect(page).to have_content('Hourly rate: $100.00')
     expect(page).to have_content('Bio: I love tattoos!')
 
     expect(current_path).to eq('/profile')
-    expect(page).to have_content('Registation complete!')
+    expect(page).to have_content('Registration complete!')
   end
 
   xit 'is redirected to show page if already registered' do
