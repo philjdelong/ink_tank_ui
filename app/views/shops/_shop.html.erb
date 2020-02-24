@@ -1,17 +1,17 @@
 <%= form_for @shop, method: method, url: shops_path do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name %><br>
 
   <%= f.label :street_address %>
-  <%= f.text_field :street_address %>
+  <%= f.text_field :street_address %><br>
 
   <%= f.label :city %>
-  <%= f.text_field :city %>
+  <%= f.text_field :city %><br>
 
   <%= f.label :phone_number %>
-  <%= f.text_field :phone_number %>
+  <%= f.text_field :phone_number %><br>
 
-  <%= f.hidden_field(:zip, value: zip) %>
+  <%= f.hidden_field(:zip, value: zip) %><br>
 
-  <%= submit_tag button_text %>
+  <%= submit_tag button_text %><br>
 <% end %>

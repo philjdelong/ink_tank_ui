@@ -8,8 +8,8 @@ RSpec.describe "A visitor" do
          expect(page).to have_link("Register")
          expect(page).to have_link("Artists")
          expect(page).to have_link("Locations")
-         click_link "Login"
-      end
+         expect(page).to have_link("Login with Github")
+      end  
       expect(current_path).to eq("/")
    end
 end
