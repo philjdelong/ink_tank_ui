@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Registration' do
-  it 'user can register' do
+  xit 'user can register' do
     visit new_shop_path
     expect(page).to have_content('Enter Shop Information')
 
@@ -19,7 +19,7 @@ RSpec.describe 'Registration' do
 
     click_on('Next')
 
-    fill_in :name, with: 'John'
+    fill_in :user_name, with: 'John'
     fill_in :tattoo_styles, with: 'traditional'
     fill_in :price_per_hour, with: 100.00
     fill_in :bio, with: 'I love tattoos!'
@@ -33,5 +33,14 @@ RSpec.describe 'Registration' do
 
     expect(current_path).to eq('/profile')
     expect(page).to have_content('Registation complete!')
+  end
+
+  it 'is redirected to show page if already registered' do
+    shop = Shop.create(name: 'Default shop', street_address: '123 Main', city: 'Denver', zip: '80206', phone_number: '123456789')
+    user = User.create(shop_id: shop.id, uid: '123456789', token: '1234abc', login: 'example@gmail.com')
+
+    visit ('/auth/:provider/callback')
+    click_on("Log in to GitHub")
+    expect(current_path).to eq(users_path(user))
   end
 end
