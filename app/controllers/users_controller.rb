@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def update
     current_user.complete_user(current_user, params)
+    redirect_to user_path(current_user)
   end
 
   private
