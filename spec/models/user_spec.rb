@@ -3,7 +3,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'validations' do
-    it { should belong_to(:shop) }
+    it { should belong_to(:shop), optional: true }
     # it { should validate_presence_of(:name)}
     # it { should validate_presence_of(:tattoo_styles)}
     # it { should validate_presence_of(:price_per_hour)}
@@ -17,7 +17,7 @@ RSpec.describe User, type: :model do
     expect(user.token).to eq(nil)
     expect(user.login).to eq(nil)
 
-    user.update_user(user_info, user)
+    User.update_user(user_info, user)
     expect(user.uid).to eq('123456789')
     expect(user.token).to eq('1234abc')
     expect(user.login).to eq('example@gmail.com')
@@ -30,7 +30,6 @@ RSpec.describe User, type: :model do
 
     user = User.last
 
-    expect(user.shop_id).to eq(shop.id)
     expect(user.uid).to eq('123456789')
     expect(user.token).to eq('1234abc')
     expect(user.login).to eq('example@gmail.com')
@@ -42,7 +41,6 @@ RSpec.describe User, type: :model do
     user_info = {uid: '123456789', credentials: {token: '1234abc'}, extra: {raw_info: {login: 'example@gmail.com'}}}
     user = User.create_user(user_info)
 
-    expect(user.shop_id).to eq(shop.id)
     user.update_user_shop(user, shop_1.id)
 
     expect(user.shop_id).to eq(shop_1.id)
