@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-   
+
    def index
       return @image_results_list if @image_results_list
       if params[:search_tattoos]

@@ -10,6 +10,12 @@
   </head>
 
   <body>
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+    
     <nav class="master_nav">
 
       <div class="logo">
@@ -19,27 +25,27 @@
 
       <div align='center' class="link">
         <%= link_to "Artists"%>
-      </div> 
+      </div>
         <br>
 
       <div align='center' class="link">
         <%= link_to "Locations"%>
-      </div> 
+      </div>
         <br>
 
       <div align='center' class="link">
         <%= link_to "Styles"%>
-      </div> 
+      </div>
         <br>
 
       <div align='center' class="link">
         <%= link_to "Login"%>
-      </div> 
+      </div>
         <br>
 
       <div align='center' class="link">
         <%= link_to "Register"%>
-      </div> 
+      </div>
         <br>
     </nav>
     <%= yield %>
