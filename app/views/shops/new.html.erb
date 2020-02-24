@@ -2,16 +2,20 @@
 
 <%= render partial: 'zip', locals: { method: :get, button_text: 'Search For Shops'} %>
 
-<% if request.env['PATH_INFO'] == "/shops/new" %>
-  <% if shops != nil %>
-    <% shops.each do |shop| %>
+<% if @new_shop %>
+  <% if @shops != [] %>
+    <% @shops.each do |shop| %>
       <ul class = 'shop'>
         <li><p>Shop name: <%= shop.name %></p></li>
         <li><p>Shop address: <%= shop.street_address %></p></li>
       </ul>
     <% end %>
+    <p>Shop not listed? Add it!</p>
   <% end %>
 
-  <p>Shop not listed? Add it!</p>
-  <%= render partial: 'shop', locals: { method: :post, button_text: 'Next', zip: new_shop.zip} %>
+  <% if @shops == [] %>
+    <p>No shops found in that zipcode. Please create one.</p>
+  <% end %>
+
+  <%= render partial: 'shop', locals: { method: :post, button_text: 'Next', zip: @new_shop.zip} %>
 <% end %>
