@@ -4,11 +4,13 @@
 
 <% if @new_shop %>
   <% if @shops != [] %>
+  <p>Shops in <%= @new_shop.zip %></p>
     <% @shops.each do |shop| %>
-      <ul class = 'shop'>
-        <li><p>Shop name: <%= shop.name %></p></li>
-        <li><p>Shop address: <%= shop.street_address %></p></li>
-      </ul>
+      <label class = "container-<%= shop.id %>">
+      <input type="radio" name="radio">
+      Shop: <%= shop.name%>, <%= shop.street_address %>
+      <span class="checkmark"></span>
+    </label>
     <% end %>
     <p>Shop not listed? Add it!</p>
   <% end %>
