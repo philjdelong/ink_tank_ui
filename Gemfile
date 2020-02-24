@@ -43,6 +43,7 @@ group :development, :test do
   gem 'pry'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'factory_bot_rails'
 end
 
 group :development do
