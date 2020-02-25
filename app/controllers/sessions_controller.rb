@@ -7,9 +7,8 @@ class SessionsController < ApplicationController
       User.create_user(user_info)
       redirect_to new_shop_path
     else
-      user = User.find_by(uid: user_info[:uid])
-      user.update_user(user_info, current_user)
-      redirect_to shop_user_path(user.id, user.shop.id)
+      User.update_user(user_info, current_user)
+      redirect_to profile_path
     end
   end
 end

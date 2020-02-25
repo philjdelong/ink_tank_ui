@@ -1,13 +1,10 @@
 require 'rails_helper'
 
-
 RSpec.describe User, type: :model do
   describe 'validations' do
-    it { should belong_to(:shop) }
-    # it { should validate_presence_of(:name)}
-    # it { should validate_presence_of(:tattoo_styles)}
-    # it { should validate_presence_of(:price_per_hour)}
-    # it { should validate_presence_of(:bio)}
+    # it { should validate_presence_of(:name) }
+    # it { should validate_presence_of(:price_per_hour) }
+    # it { should validate_presence_of(:bio) }
   end
 
   it "can update_user" do
@@ -17,7 +14,7 @@ RSpec.describe User, type: :model do
     expect(user.token).to eq(nil)
     expect(user.login).to eq(nil)
 
-    user.update_user(user_info, user)
+    User.update_user(user_info, user)
     expect(user.uid).to eq('123456789')
     expect(user.token).to eq('1234abc')
     expect(user.login).to eq('example@gmail.com')
@@ -30,7 +27,6 @@ RSpec.describe User, type: :model do
 
     user = User.last
 
-    expect(user.shop_id).to eq(shop.id)
     expect(user.uid).to eq('123456789')
     expect(user.token).to eq('1234abc')
     expect(user.login).to eq('example@gmail.com')
@@ -42,7 +38,6 @@ RSpec.describe User, type: :model do
     user_info = {uid: '123456789', credentials: {token: '1234abc'}, extra: {raw_info: {login: 'example@gmail.com'}}}
     user = User.create_user(user_info)
 
-    expect(user.shop_id).to eq(shop.id)
     user.update_user_shop(user, shop_1.id)
 
     expect(user.shop_id).to eq(shop_1.id)
@@ -50,18 +45,16 @@ RSpec.describe User, type: :model do
 
   it "can fill out the remaining user fields" do
     shop = Shop.create(name: 'Default shop', street_address: '123 Main', city: 'Denver', zip: '80206', phone_number: '123456789')
-    params = { user: {name: 'Harry Potter', tattoo_styles: 'Mythical Creatures', price_per_hour: '100', bio: 'No dark marks'}}
+    params = { user: {name: 'Harry Potter', price_per_hour: '100', bio: 'No dark marks'}}
     user = User.create(shop_id: shop.id, uid: '123456789', token: '1234abc', login: 'example@gmail.com')
 
     expect(user.name).to eq(nil)
-    expect(user.tattoo_styles).to eq(nil)
     expect(user.price_per_hour).to eq(nil)
     expect(user.bio).to eq(nil)
 
     user.complete_user(user, params)
 
     expect(user.name).to eq('Harry Potter')
-    expect(user.tattoo_styles).to eq('Mythical Creatures')
     expect(user.price_per_hour).to eq(100.00)
     expect(user.bio).to eq('No dark marks')
   end

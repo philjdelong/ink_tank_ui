@@ -16,12 +16,13 @@ class UsersController < ApplicationController
 
   def update
     current_user.complete_user(current_user, params)
-    redirect_to user_path(current_user)
+    flash[:notice] = 'Registration complete!'
+    redirect_to profile_path
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :tattoo_styles, :price_per_hour, :bio)
+    params.require(:user).permit(:name, :price_per_hour, :bio)
   end
 end
