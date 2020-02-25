@@ -43,7 +43,6 @@ group :development, :test do
   gem 'pry'
   gem 'selenium-webdriver'
   gem 'webdrivers'
-  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -54,6 +53,7 @@ end
 
 group :test do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem 'factory_bot_rails'
   gem 'capybara'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
