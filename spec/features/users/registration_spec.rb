@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Registration' do
+  def stub_omniauth
+     OmniAuth.config.test_mode = true
+  end
   it 'user can register' do
     shop = Shop.create(name: 'Default shop', street_address: '123 Main', city: 'Denver', zip: '80206', phone_number: '123456789')
     user = User.create(uid: '12345', token: 'token', login: 'example@example.com' )
