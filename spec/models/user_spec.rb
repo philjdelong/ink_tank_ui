@@ -1,11 +1,10 @@
 require 'rails_helper'
 
-
 RSpec.describe User, type: :model do
   describe 'validations' do
-    # it { should validate_presence_of(:name)}
-    # it { should validate_presence_of(:price_per_hour)}
-    # it { should validate_presence_of(:bio)}
+    # it { should validate_presence_of(:name) }
+    # it { should validate_presence_of(:price_per_hour) }
+    # it { should validate_presence_of(:bio) }
   end
 
   it "can update_user" do
