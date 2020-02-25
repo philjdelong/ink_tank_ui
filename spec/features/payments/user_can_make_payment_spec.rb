@@ -2,13 +2,12 @@ require 'rails_helper'
 
 RSpec.describe "as an artist" do
   it "can initiate a payment" do
-    shop = Shop.create(name: "Ink Link", street_address: "123 Sesame Street", city: "Austin", phone_number: "5124592222", zip: "78620")
-    artist = User.new(name: "Sterling Archer", shop: shop)
-
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(artist)
+    shop = Shop.create(name: 'Default shop', street_address: '123 Main', city: 'Denver', zip: '80206', phone_number: '123456789')
+    user = create(:user, shop: shop, uid: '12345', token: 'token', login: 'example@example.com')
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit '/'
-
+    binding.pry
     click_on "Get Paid"
     expect(current_path).to eq('/payments/new')
 
