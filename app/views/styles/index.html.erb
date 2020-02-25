@@ -1,0 +1,12 @@
+<h1 class="title" align='center'>All Styles</h1>
+   <br>
+
+<p class='description'>All styles are performed by InkTank's top-notch tattoo artists. We take the time to ensure your artist has done this at least once before.</p>
+   <br>
+
+<% @styles.each do |style| %>
+   <div class="style" align='left'>
+      <h3><%= style.name %></h3>
+      <p><%= style.description %></p>
+   </div>
+<% end %>
