@@ -14,7 +14,6 @@ class User < ApplicationRecord
 
   def self.create_user(user_info)
     User.create!( uid:     user_info[:uid],
-                  uid:     user_info[:uid],
                   token:   user_info[:credentials][:token],
                   login:   user_info[:extra][:raw_info][:login])
   end
