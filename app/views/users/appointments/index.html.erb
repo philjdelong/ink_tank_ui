@@ -1,0 +1,14 @@
+<div class="simple-calendar" align='right'>
+  <%= month_calendar(attribute: :date, appointments: @appointments) do |date, appointments| %>
+    <%= link_to date, "/users/appointments/#{date}", remote: true %>
+
+    <% appointments.each do |appointment| %>
+      <div>
+        <%= appointment.description %>
+      </div>
+    <% end %>
+  <% end %>
+  <div id="appointment-action">
+  </div>
+</div>
+<hr>

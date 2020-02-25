@@ -3,4 +3,5 @@
   <p>Tattoo styles: <%= user.tattoo_styles %></p>
   <p>Hourly rate: <%= number_to_currency(user.price_per_hour) %></p>
   <p>Bio: <%= user.bio %></p>
+  <p><%= link_to 'Appointments', users_appointments_path %></p>
 </div>
