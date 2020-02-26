@@ -5,7 +5,6 @@ RSpec.describe "A visitor" do
       visit "/"
 
       within "nav" do
-         expect(page).to have_link("Register")
          expect(page).to have_link("Artists")
          expect(page).to have_link("Locations")
          expect(page).to have_link("Login with Google")

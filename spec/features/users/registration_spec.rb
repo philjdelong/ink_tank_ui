@@ -65,5 +65,6 @@ RSpec.describe 'Registration' do
     click_on("Login with Google")
 
     expect(current_path).to eq(profile_path)
+    
   end
 end

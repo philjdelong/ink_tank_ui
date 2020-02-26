@@ -7,8 +7,10 @@ class SessionsController < ApplicationController
       User.create_user(user_info)
       redirect_to new_shop_path
     else
+
       User.update_user(user_info, current_user)
       redirect_to profile_path
+      @current_user = User.last
     end
   end
 end

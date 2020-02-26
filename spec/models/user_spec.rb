@@ -2,17 +2,11 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'validations' do
-<<<<<<< HEAD
-    # it { should validate_presence_of(:name) }
-    # it { should validate_presence_of(:price_per_hour) }
-    # it { should validate_presence_of(:bio) }
-=======
     # it { should belong_to(:shop).optional(:true) }
     # it { should validate_presence_of(:name)}
     # it { should validate_presence_of(:tattoo_styles)}
     # it { should validate_presence_of(:price_per_hour)}
     # it { should validate_presence_of(:bio)}
->>>>>>> 4ee9fc4b8508df2f7b41466a5f5b9da506aeac8a
   end
 
   it "can update_user" do

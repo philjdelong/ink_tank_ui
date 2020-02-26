@@ -37,21 +37,16 @@
         <%= link_to "Styles", "/styles" %>
       </div>
         <br>
-      <% if @current_user %>
+      <% if session[:login] %>
         <div align='center' class="link">
           <%= link_to "Get Paid", '/payments/new' %>
         </div>
           <br>
       <% else %>
         <div align='center' class="link">
-          <%= link_to "Login with Github", '/auth/github' %>
-        </div>
-          <br>
-
-        <div align='center' class="link">
-          <%= link_to "Register"%>
-        </div>
-          <br>
+         <%= link_to "Login with Google", '/auth/google' %>
+           </div>
+         <br>
       <% end %>
     </nav>
     <%= yield %>

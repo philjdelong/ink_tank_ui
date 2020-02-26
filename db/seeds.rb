@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Style.destroy_all
 default_shop = Shop.create!(name: 'Default shop', street_address: '123 Main', city: 'Denver', zip: '80206', phone_number: '123456789')
 
@@ -14,6 +13,3 @@ default_shop = Shop.create!(name: 'Default shop', street_address: '123 Main', ci
    name: "Tribal",
    description: "Arm band."
 )
-=======
-
->>>>>>> 4ee9fc4b8508df2f7b41466a5f5b9da506aeac8a
