@@ -2,9 +2,17 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'validations' do
-    # it { should validate_presence_of(:name) }
-    # it { should validate_presence_of(:price_per_hour) }
-    # it { should validate_presence_of(:bio) }
+    it { should validate_presence_of(:uid).on(:create) }
+    it { should validate_presence_of(:login).on(:create) }
+    it { should validate_presence_of(:token).on(:create) }
+    it { should validate_presence_of(:name).on(:update) }
+    it { should validate_presence_of(:price_per_hour).on(:update) }
+    it { should validate_presence_of(:bio).on(:update) }
+  end
+
+  describe 'relationships' do
+    it { should have_many(:user_styles) }
+    it { should have_many(:users).through(:user_styles) }
   end
 
   it "can update_user" do
@@ -23,7 +31,7 @@ RSpec.describe User, type: :model do
   it "can create user with partial params" do
     shop = Shop.create(name: 'Default shop', street_address: '123 Main', city: 'Denver', zip: '80206', phone_number: '123456789')
     user_info = {uid: '123456789', credentials: {token: '1234abc'}, info: {email: 'example@gmail.com'}}
-    User.create_user(user_info)
+    User.save_user_oauth_info(user_info)
 
     user = User.last
 
@@ -36,7 +44,7 @@ RSpec.describe User, type: :model do
     shop = Shop.create(name: 'Default shop', street_address: '123 Main', city: 'Denver', zip: '80206', phone_number: '123456789')
     shop_1 = Shop.create(name: 'Shop 2', street_address: '123 Main', city: 'Denver', zip: '80206', phone_number: '123456789')
     user_info = {uid: '123456789', credentials: {token: '1234abc'}, info: {email: 'example@gmail.com'}}
-    user = User.create_user(user_info)
+    user = User.save_user_oauth_info(user_info)
 
     user.update_user_shop(user, shop_1.id)
 
@@ -47,6 +55,7 @@ RSpec.describe User, type: :model do
     shop = Shop.create(name: 'Default shop', street_address: '123 Main', city: 'Denver', zip: '80206', phone_number: '123456789')
     params = { user: {name: 'Harry Potter', price_per_hour: '100', bio: 'No dark marks'}}
     user = User.create(shop_id: shop.id, uid: '123456789', token: '1234abc', login: 'example@gmail.com')
+
 
     expect(user.name).to eq(nil)
     expect(user.price_per_hour).to eq(nil)
