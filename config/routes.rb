@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :update]
 
+  resources :styles, only: [:index]
+
   resources :shops, only: [:show, :new, :index, :create] do
     resources :users, only: [:new, :create, :show]
   end

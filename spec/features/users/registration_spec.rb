@@ -43,14 +43,12 @@ RSpec.describe 'Registration' do
     click_on('Next')
 
     fill_in :user_name, with: 'John'
-    fill_in :user_tattoo_styles, with: 'traditional'
     fill_in :user_price_per_hour, with: 100.00
     fill_in :user_bio, with: 'I love tattoos!'
 
     click_on('Finish creating profile')
 
     expect(page).to have_content('Name: John')
-    expect(page).to have_content('Tattoo styles: traditional')
     expect(page).to have_content('Hourly rate: $100.00')
     expect(page).to have_content('Bio: I love tattoos!')
 
