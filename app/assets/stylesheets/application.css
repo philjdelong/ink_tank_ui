@@ -25,12 +25,25 @@ nav.master_nav {
   position: fixed;
 }
 
+.logo img{
+   float: left;
+   width: 100%;
+}
+
+.link a{
+   padding-top: 1%;
+   padding-right: 5%;
+   padding-left: 5%;
+   font-size: 20px;
+   color: rgb(102, 166, 205);
+   font-family: 'Courier New', Courier, monospace;
+}
+
 .images {
    padding-top: 5%;
    float: right;
    width: 70%;
 }
-
 .image img{
    max-width: 30%;
    max-height: 20%;
@@ -40,16 +53,31 @@ nav.master_nav {
    padding-bottom: 1%;
 }
 
-.logo img{
-   width: 100%;
-}
-
-.link a{
-   padding-top: 1%;
+.title {
+   float: right;
+   width: 70%;
    padding-right: 5%;
    padding-left: 5%;
-   font-size: 30px;
-   color: rgb(102, 166, 205);
+   font-size: 50px;
+   color: rgb(205, 102, 102);
+   font-family: 'Courier New', Courier, monospace;
+}
+
+.description {
+   width: 65%;
+   float: right;
+   padding-right: 5%;
+   padding-left: 5%;
+   color: rgb(205, 102, 102);
+   font-family: 'Courier New', Courier, monospace;
+}
+
+.style {
+   float: right;
+   width: 70%;
+   padding-top: 5%;
+   padding-bottom: 2%;
+   color: rgb(205, 184, 102);
    font-family: 'Courier New', Courier, monospace;
 }
 
@@ -106,5 +134,5 @@ nav.master_nav {
 }
 
 .container input:checked ~ .checkmark {
-  background-color: #grey;
+  background-color: grey;
 }

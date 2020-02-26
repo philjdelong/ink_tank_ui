@@ -55,6 +55,7 @@ end
 
 group :test do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
+  gem 'factory_bot_rails'
   gem 'capybara'
   gem 'rspec-rails'
   gem 'shoulda-matchers'

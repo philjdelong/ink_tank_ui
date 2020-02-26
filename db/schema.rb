@@ -35,9 +35,13 @@ ActiveRecord::Schema.define(version: 2020_02_24_212003) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "styles", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "tattoo_styles"
     t.float "price_per_hour"
     t.string "bio"
     t.datetime "created_at", null: false
