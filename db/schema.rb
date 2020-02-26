@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_015052) do
+ActiveRecord::Schema.define(version: 2020_02_26_043933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 2020_02_25_015052) do
     t.string "description"
   end
 
+  create_table "user_styles", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "style_id"
+    t.index ["style_id"], name: "index_user_styles_on_style_id"
+    t.index ["user_id"], name: "index_user_styles_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.float "price_per_hour"
@@ -40,8 +47,11 @@ ActiveRecord::Schema.define(version: 2020_02_25_015052) do
     t.string "uid"
     t.string "login"
     t.string "token"
+    t.string "image"
     t.index ["shop_id"], name: "index_users_on_shop_id"
   end
 
+  add_foreign_key "user_styles", "styles"
+  add_foreign_key "user_styles", "users"
   add_foreign_key "users", "shops"
 end
