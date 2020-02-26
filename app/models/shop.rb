@@ -1,5 +1,5 @@
 class Shop < ApplicationRecord
-  has_many :users
+  has_many :artists
 
   validates_presence_of :name
   validates_presence_of :street_address

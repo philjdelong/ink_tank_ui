@@ -15,6 +15,27 @@ ActiveRecord::Schema.define(version: 2020_02_26_043933) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "artist_styles", force: :cascade do |t|
+    t.bigint "artist_id"
+    t.bigint "style_id"
+    t.index ["artist_id"], name: "index_artist_styles_on_artist_id"
+    t.index ["style_id"], name: "index_artist_styles_on_style_id"
+  end
+
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.float "price_per_hour"
+    t.string "bio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "shop_id"
+    t.string "uid"
+    t.string "login"
+    t.string "token"
+    t.string "image"
+    t.index ["shop_id"], name: "index_artists_on_shop_id"
+  end
+
   create_table "shops", force: :cascade do |t|
     t.string "name"
     t.string "street_address"
@@ -30,28 +51,7 @@ ActiveRecord::Schema.define(version: 2020_02_26_043933) do
     t.string "description"
   end
 
-  create_table "user_styles", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "style_id"
-    t.index ["style_id"], name: "index_user_styles_on_style_id"
-    t.index ["user_id"], name: "index_user_styles_on_user_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.float "price_per_hour"
-    t.string "bio"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "shop_id"
-    t.string "uid"
-    t.string "login"
-    t.string "token"
-    t.string "image"
-    t.index ["shop_id"], name: "index_users_on_shop_id"
-  end
-
-  add_foreign_key "user_styles", "styles"
-  add_foreign_key "user_styles", "users"
-  add_foreign_key "users", "shops"
+  add_foreign_key "artist_styles", "artists"
+  add_foreign_key "artist_styles", "styles"
+  add_foreign_key "artists", "shops"
 end

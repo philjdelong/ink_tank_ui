@@ -5,13 +5,13 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback', to: 'sessions#create'
 
-  get '/profile', to: 'users#show'
+  get '/profile', to: 'artists#show'
 
-  resources :users, only: [:new, :update]
+  resources :artists, only: [:new, :update]
 
   resources :styles, only: [:index]
 
   resources :shops, only: [:show, :new, :index, :create] do
-    resources :users, only: [:new, :create, :show]
+    resources :artists, only: [:new, :create, :show]
   end
 end

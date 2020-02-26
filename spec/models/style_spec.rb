@@ -7,7 +7,7 @@ describe Style, type: :model do
   end
 
   describe 'relationships' do
-    it { should have_many(:user_styles) }
-    it { should have_many(:users).through(:user_styles) }
+    it { should have_many(:artist_styles) }
+    it { should have_many(:artists).through(:artist_styles) }
   end
 end

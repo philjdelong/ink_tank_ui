@@ -1,7 +1,7 @@
-class User < ApplicationRecord
+class Artist < ApplicationRecord
 
-  has_many :user_styles
-  has_many :users, through: :user_styles
+  has_many :artist_styles
+  has_many :artists, through: :artist_styles
 
   validates_presence_of :uid, on: :create
   validates_presence_of :login, on: :create
@@ -19,7 +19,7 @@ class User < ApplicationRecord
   end
 
   def self.save_user_oauth_info(user_info)
-    User.create!( uid:   user_info[:uid],
+    Artist.create!( uid:   user_info[:uid],
                   token: user_info[:credentials][:token],
                   login: user_info[:info][:email],
                   image: user_info[:info][:image])
@@ -30,9 +30,9 @@ class User < ApplicationRecord
   end
 
   def complete_user(current_user, params)
-    current_user.name  = params[:user][:name]
-    current_user.bio   = params[:user][:bio]
-    current_user.price_per_hour  = params[:user][:price_per_hour].to_f
+    current_user.name  = params[:artist][:name]
+    current_user.bio   = params[:artist][:bio]
+    current_user.price_per_hour  = params[:artist][:price_per_hour].to_f
     current_user.save!
     Style.add_user_styles(current_user, params)
   end

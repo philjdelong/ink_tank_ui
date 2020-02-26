@@ -1,14 +1,14 @@
-class UsersController < ApplicationController
+class ArtistsController < ApplicationController
   def new
     render locals: {
-      user: current_user,
+      artist: current_user,
       tattoo_styles: Style.all
     }
   end
 
   def create
     render locals: {
-      user: current_user,
+      artist: current_user,
       tattoo_styles: Style.all
     }
   end
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    render locals: { user: current_user }
+    render locals: { artist: current_user }
   end
 
   def update
@@ -29,6 +29,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :price_per_hour, :bio)
+    params.require(:artist).permit(:name, :price_per_hour, :bio)
   end
 end
