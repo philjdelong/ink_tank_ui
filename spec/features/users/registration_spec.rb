@@ -20,6 +20,18 @@ end
 
 RSpec.describe 'Registration' do
   it 'user can register' do
+    traditional_style = Style.create(
+     name: "Traditional",
+     description: "The traditional style!" )
+
+    realism_style = Style.create(
+     name: "Realism",
+     description: "Though classic realism has been a part..." )
+
+    watercolor_style = Style.create(
+     name: "Watercolor",
+     description: "The watercolor style is currently in vogue." )
+
     stub_omniauth
     visit root_path
     click_on("Login with Google")
