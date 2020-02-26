@@ -7,7 +7,6 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'artists#show'
 
-
   resources :artists, only: [:new, :update, :show]
 
   resources :styles, only: [:index]
