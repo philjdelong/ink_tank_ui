@@ -16,4 +16,8 @@ Rails.application.routes.draw do
   resources :shops, only: [:show, :new, :index, :create] do
     resources :users, only: [:new, :create, :show]
   end
+
+  resources :artists do
+    resources :appointments
+  end
 end

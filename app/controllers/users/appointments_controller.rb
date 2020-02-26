@@ -1,4 +1,6 @@
 class Users::AppointmentsController < ApplicationController
+  protect_from_forgery except: :show
+
   def index
     @appointments = Appointment.where(user_id: current_user.id)
   end
@@ -6,7 +8,6 @@ class Users::AppointmentsController < ApplicationController
   def show
     @appointment_date = params[:id]
     @appointments = Appointment.where(date: @appointment_date)
-    @appointment = Appointment.new
 
     respond_to do |format|
       format.js { render layout: false }

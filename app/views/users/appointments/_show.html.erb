@@ -10,10 +10,10 @@
 </table>
 <hr>
 <h4>Create Event</h4>
-<%= form_tag "/users/appointments" do %>
+<%= form_tag "/users/appointments", id: 'user-new-appointment' do %>
   <%= label_tag :date %>
   <%= text_field_tag :date, appointment_date %>
   <%= label_tag :description %>
-  <%= text_field_tag :description %>
+  <%= text_field_tag :description, nil, id: 'new-desc' %>
   <%= submit_tag 'Add Appointment' %>
 <% end %>
