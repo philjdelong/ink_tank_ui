@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2020_02_26_043933) do
     t.index ["artist_id"], name: "index_appointments_on_artist_id"
   end
 
+
   create_table "artist_styles", force: :cascade do |t|
     t.bigint "artist_id"
     t.bigint "style_id"

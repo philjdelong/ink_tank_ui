@@ -1,4 +1,5 @@
 <div class="simple-calendar" align='right'>
+  
   <%= month_calendar(attribute: :date, events: @appointments) do |date, appointments| %>
 
     <% if appointments.empty? %>
