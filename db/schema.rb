@@ -15,6 +15,16 @@ ActiveRecord::Schema.define(version: 2020_02_26_043933) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "appointments", force: :cascade do |t|
+    t.datetime "date"
+    t.string "description"
+    t.boolean "paid"
+    t.string "client_name"
+    t.string "client_email"
+    t.bigint "artist_id"
+    t.index ["artist_id"], name: "index_appointments_on_artist_id"
+  end
+
   create_table "artist_styles", force: :cascade do |t|
     t.bigint "artist_id"
     t.bigint "style_id"
@@ -51,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_02_26_043933) do
     t.string "description"
   end
 
+  add_foreign_key "appointments", "artists"
   add_foreign_key "artist_styles", "artists"
   add_foreign_key "artist_styles", "styles"
   add_foreign_key "artists", "shops"

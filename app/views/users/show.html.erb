@@ -1,0 +1,6 @@
+<div align='right' class="forms">
+  <p>Name: <%= user.name %>
+  <p>Hourly rate: <%= number_to_currency(user.price_per_hour) %></p>
+  <p>Bio: <%= user.bio %></p>
+  <p><%= link_to 'Appointments', users_appointments_path %></p>
+</div>

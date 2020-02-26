@@ -7,11 +7,19 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'artists#show'
 
-  resources :artists, only: [:new, :update]
+  resources :artists, only: [:new, :update, :show]
 
   resources :styles, only: [:index]
 
   resources :shops, only: [:show, :new, :index, :create] do
     resources :artists, only: [:new, :create, :show]
+  end
+
+  namespace :users do
+    resources :appointments
+  end
+  
+  resources :artists do
+    resources :appointments
   end
 end

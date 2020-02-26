@@ -7,3 +7,8 @@
   <p>Hourly rate: <%= number_to_currency(artist.price_per_hour) %></p>
   <p>Bio: <%= artist.bio %></p>
 </div>
+
+<div class="form">
+  <p><%= artist.name %></p>
+  <%= link_to 'Appointments', artist_appointments_path(artist.id) %>
+</div>

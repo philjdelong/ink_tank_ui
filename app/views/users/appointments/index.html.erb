@@ -1,0 +1,19 @@
+<div class="simple-calendar" align='right'>
+  <%= month_calendar(attribute: :date, events: @appointments) do |date, appointments| %>
+
+    <% if appointments.empty? %>
+      <%= link_to date, artist_appointment_path(@artist_id, date, format: :js), remote: true %>
+    <% else %>
+      <b><%= date %></b>
+    <% end %>
+
+    <% appointments.each do |appointment| %>
+      <div>
+        <%= appointment.description %>
+      </div>
+    <% end %>
+  <% end %>
+  <div id="appointment-action">
+  </div>
+</div>
+<hr>
