@@ -1,2 +1,1 @@
-
-$('#appointment-action').html("<%= escape_javascript(render partial: 'appointments/show', locals: { appointment_date: @appointment_date }) %>");
+$('#appointment-action').html("<%= escape_javascript(render partial: 'users/appointments/show', locals: { appointments: @appointments, appointment_date: @appointment_date, appointment: @appointment }) %>");
