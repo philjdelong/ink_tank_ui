@@ -1,10 +1,16 @@
 class UsersController < ApplicationController
   def new
-    @user = current_user
+    render locals: {
+      user: current_user,
+      tattoo_styles: Style.all
+    }
   end
 
   def create
-    @user = current_user
+    render locals: {
+      user: current_user,
+      tattoo_styles: Style.all
+    }
   end
 
   def index
