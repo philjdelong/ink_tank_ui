@@ -11,7 +11,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    render locals: { user: current_user }
+    @appointments = Appointment.where(user_id: params[:id])
+    render locals: { user: current_user, appointments: @appointments }
   end
 
   def update
