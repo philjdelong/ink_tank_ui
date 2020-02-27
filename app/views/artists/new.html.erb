@@ -1,0 +1,4 @@
+<div align='right' class="forms">
+<h1>Enter Personal Information</h1>
+  <%= render partial: 'artist', locals: { artist: artist, tattoo_styles: tattoo_styles, path: artist_path(artist.id), method: :patch, button_text: 'Finish creating profile'} %>
+</div>

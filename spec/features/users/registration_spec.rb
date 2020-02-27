@@ -20,6 +20,18 @@ end
 
 RSpec.describe 'Registration' do
   it 'user can register' do
+    traditional_style = Style.create(
+     name: "Traditional",
+     description: "The traditional style!" )
+
+    realism_style = Style.create(
+     name: "Realism",
+     description: "Though classic realism has been a part..." )
+
+    watercolor_style = Style.create(
+     name: "Watercolor",
+     description: "The watercolor style is currently in vogue." )
+
     stub_omniauth
     visit root_path
     click_on("Login with Google")
@@ -42,9 +54,15 @@ RSpec.describe 'Registration' do
 
     click_on('Next')
 
-    fill_in :user_name, with: 'John'
-    fill_in :user_price_per_hour, with: 100.00
-    fill_in :user_bio, with: 'I love tattoos!'
+    fill_in :artist_name, with: 'John'
+    fill_in :artist_price_per_hour, with: 100.00
+    fill_in :artist_bio, with: 'I love tattoos!'
+
+    Style.all.each do |style|
+      within "#style-#{style.name}" do
+        check "style_ids[]"
+      end
+    end
 
     click_on('Finish creating profile')
 
@@ -57,8 +75,8 @@ RSpec.describe 'Registration' do
   end
 
   it 'is redirected to show page if already registered' do
-    user = User.create(uid: '12345678910', token: 'abcdefg12345', login: 'example@example.com')
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    artist = Artist.create(uid: '12345678910', token: 'abcdefg12345', login: 'example@example.com')
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(artist)
 
     stub_omniauth
     visit root_path
