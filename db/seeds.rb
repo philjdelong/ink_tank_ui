@@ -59,7 +59,7 @@ chicano_style = Style.create(
 )
 
 # artists
-@phil = Artist.create(
+phil = Artist.create(
    name: 'Phil',
    price_per_hour: 10.0,
    bio: 'I love tattoo.',
@@ -68,7 +68,7 @@ chicano_style = Style.create(
    login: 'phil@email.com',
    token: 'token'
 )
-@wren = Artist.create(
+wren = Artist.create(
    name: 'Wren',
    price_per_hour: 10.0,
    bio: 'I love tattoo.',
@@ -77,7 +77,7 @@ chicano_style = Style.create(
    login: 'wren@email.com',
    token: 'token'
 )
-@lain = Artist.create(
+lain = Artist.create(
    name: 'Lain',
    price_per_hour: 10.0,
    bio: 'I love tattoo.',
@@ -86,7 +86,7 @@ chicano_style = Style.create(
    login: 'lain@email.com',
    token: 'token'
 )
-@darren = Artist.create(
+darren = Artist.create(
    name: "Darren",
    price_per_hour: 10.0,
    bio: 'I love tattoo.',
@@ -97,27 +97,27 @@ chicano_style = Style.create(
 )
 
 # artist_styles
-@artist_style_1 = ArtistStyle.create(
+artist_style_1 = ArtistStyle.create(
    artist_id: @phil.id, 
-   style_id: @traditional_style.id
+   style_id: traditional_style.id
 )
-@artist_style_2 = ArtistStyle.create(
-   artist_id: @phil.id, 
-   style_id: @realism_style.id
+artist_style_2 = ArtistStyle.create(
+   artist_id: phil.id, 
+   style_id: realism_style.id
 )
-@artist_style_3 = ArtistStyle.create(
-   artist_id: @phil.id, 
-   style_id: @watercolor_style.id
+artist_style_3 = ArtistStyle.create(
+   artist_id: phil.id, 
+   style_id: watercolor_style.id
 )
-@artist_style_4 = ArtistStyle.create(
-   artist_id: @wren.id, 
-   style_id: @traditional_style.id
+artist_style_4 = ArtistStyle.create(
+   artist_id: wren.id, 
+   style_id: traditional_style.id
 )
-@artist_style_5 = ArtistStyle.create(
-   artist_id: @lain.id, 
-   style_id: @traditional_style.id
+artist_style_5 = ArtistStyle.create(
+   artist_id: lain.id, 
+   style_id: traditional_style.id
 )
-@artist_style_6 = ArtistStyle.create(
-   artist_id: @darren.id, 
-   style_id: @traditional_style.id
+artist_style_6 = ArtistStyle.create(
+   artist_id: darren.id, 
+   style_id: traditional_style.id
 )
