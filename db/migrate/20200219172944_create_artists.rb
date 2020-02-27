@@ -1,6 +1,6 @@
-class CreateUsers < ActiveRecord::Migration[5.2]
+class CreateArtists < ActiveRecord::Migration[5.2]
   def change
-    create_table :users do |t|
+    create_table :artists do |t|
       t.string :name
       t.string :tattoo_styles
       t.float :price_per_hour

@@ -1,12 +1,42 @@
 require 'rails_helper'
 
+def stub_omniauth
+   OmniAuth.config.test_mode = true
+   OmniAuth.config.mock_auth[:google] = OmniAuth::AuthHash.new({
+     provider: "google",
+      uid: "12345678910",
+      info: {
+        email: "example@example.com",
+        first_name: "first",
+        last_name: "last"
+      },
+      credentials: {
+        token: "abcdefg12345",
+        refresh_token: "12345abcdefg",
+        expires_at: DateTime.now,
+      }
+      })
+end
+
 RSpec.describe 'Registration' do
   it 'user can register' do
-    shop = Shop.create(name: 'Default shop', street_address: '123 Main', city: 'Denver', zip: '80206', phone_number: '123456789')
-    user = User.create(uid: '12345', token: 'token', login: 'example@example.com' )
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    traditional_style = Style.create(
+     name: "Traditional",
+     description: "The traditional style!" )
 
-    visit new_shop_path
+    realism_style = Style.create(
+     name: "Realism",
+     description: "Though classic realism has been a part..." )
+
+    watercolor_style = Style.create(
+     name: "Watercolor",
+     description: "The watercolor style is currently in vogue." )
+
+    stub_omniauth
+    visit root_path
+    click_on("Login with Google")
+
+    expect(current_path).to eq(new_shop_path)
     expect(page).to have_content('Enter Shop Information')
 
     fill_in :_shops_zip_code, with: '80202'
@@ -24,9 +54,15 @@ RSpec.describe 'Registration' do
 
     click_on('Next')
 
-    fill_in :user_name, with: 'John'
-    fill_in :user_price_per_hour, with: 100.00
-    fill_in :user_bio, with: 'I love tattoos!'
+    fill_in :artist_name, with: 'John'
+    fill_in :artist_price_per_hour, with: 100.00
+    fill_in :artist_bio, with: 'I love tattoos!'
+
+    Style.all.each do |style|
+      within "#style-#{style.name}" do
+        check "style_ids[]"
+      end
+    end
 
     click_on('Finish creating profile')
 
@@ -38,12 +74,14 @@ RSpec.describe 'Registration' do
     expect(page).to have_content('Registration complete!')
   end
 
-  xit 'is redirected to show page if already registered' do
-    shop = Shop.create(name: 'Default shop', street_address: '123 Main', city: 'Denver', zip: '80206', phone_number: '123456789')
-    user = User.create(shop_id: shop.id, uid: '123456789', token: '1234abc', login: 'example@gmail.com')
+  it 'is redirected to show page if already registered' do
+    artist = Artist.create(uid: '12345678910', token: 'abcdefg12345', login: 'example@example.com')
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(artist)
 
-    visit ('/auth/:provider/callback')
-    click_on("Log in to GitHub")
-    expect(current_path).to eq(users_path(user))
+    stub_omniauth
+    visit root_path
+    click_on("Login with Google")
+
+    expect(current_path).to eq(profile_path)
   end
 end

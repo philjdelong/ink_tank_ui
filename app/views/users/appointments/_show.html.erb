@@ -1,16 +1,9 @@
 <h3><%= appointment_date %></h3>
-<table>
-  <% appointments.each do |appointment| %>
-    <tr>
-      <td><%= appointment.description %></td>
-      <td><%= link_to 'Edit', "/users/appointments/#{appointment.id}/edit", remote: true %></td>
-      <td><%= link_to 'Delete', "/users/appointments/#{appointment.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
 <hr>
-<h4>Create Event</h4>
-<%= form_tag "/users/appointments", id: 'user-new-appointment' do %>
+
+<h4>Request Appointment</h4>
+<%= form_tag artist_appointments_path do %>
+
   <%= label_tag :date %>
   <%= text_field_tag :date, appointment_date %>
   <%= label_tag :description %>

@@ -13,7 +13,7 @@ class ShopsController < ApplicationController
     if @shop.save
       current_user.update_user_shop(current_user, @shop.id)
       flash[:notice] = 'Shop successfully created'
-      redirect_to new_user_path
+      redirect_to new_artist_path
     else
       flash[:error] = @shop.errors.full_messages.to_sentence
     end

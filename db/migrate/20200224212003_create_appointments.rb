@@ -6,7 +6,7 @@ class CreateAppointments < ActiveRecord::Migration[5.2]
       t.boolean :paid
       t.string :client_name
       t.string :client_email
-      t.references :user, foreign_key: true
+      t.references :artist, foreign_key: true
     end
   end
 end

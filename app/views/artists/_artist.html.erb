@@ -1,0 +1,21 @@
+
+<%= form_for artist, method: method do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <%= f.label :price_per_hour %>
+  <%= f.text_field :price_per_hour %><br>
+
+  <%= f.label :bio %>
+  <%= f.text_field :bio %><br>
+
+  <% tattoo_styles.each do |style| %>
+  <section id = "style-<%= style.name %>">
+    <%= check_box_tag 'style_ids[]', "#{style.id}" %>
+    <%= h style.name %>
+  </section>
+  <% end %>
+
+  <%= submit_tag button_text %>
+<% end %>
