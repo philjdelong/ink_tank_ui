@@ -70,5 +70,6 @@ RSpec.describe "as an artist" do
     click_on 'Submit Payment'
     expect(current_path).to eq('/profile')
     expect(page).to have_content('Charge complete')
+    
   end
 end

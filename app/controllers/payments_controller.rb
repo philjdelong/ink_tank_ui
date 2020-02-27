@@ -10,7 +10,8 @@ class PaymentsController < ApplicationController
                 description: "#{params[:description]}",
                 amount: "#{amount}"}.to_json
     end
-    charge = JSON.parse(raw_charge)
+
+    charge = JSON.parse(raw_charge.body)
     redirect_to '/profile'
   end
 end
