@@ -98,7 +98,7 @@ darren = Artist.create(
 
 # artist_styles
 artist_style_1 = ArtistStyle.create(
-   artist_id: @phil.id, 
+   artist_id: phil.id, 
    style_id: traditional_style.id
 )
 artist_style_2 = ArtistStyle.create(
