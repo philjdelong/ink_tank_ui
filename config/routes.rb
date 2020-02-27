@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :artists, only: [:new, :create, :show]
   end
 
-  namespace :users do
+  namespace :artists do
     resources :appointments
   end
 
