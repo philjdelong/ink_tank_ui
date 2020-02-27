@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
     else
       Artist.update_user(user_info, current_user)
       redirect_to profile_path
+      @current_user = User.last
     end
   end
 end

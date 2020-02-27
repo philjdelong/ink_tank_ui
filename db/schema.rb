@@ -25,17 +25,6 @@ ActiveRecord::Schema.define(version: 2020_02_26_043933) do
     t.index ["artist_id"], name: "index_appointments_on_artist_id"
   end
 
-  create_table "shops", force: :cascade do |t|
-    t.string "name"
-    t.string "street_address"
-    t.string "city"
-    t.string "zip"
-    t.string "phone_number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-
   create_table "artist_styles", force: :cascade do |t|
     t.bigint "artist_id"
     t.bigint "style_id"
