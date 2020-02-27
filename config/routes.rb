@@ -6,9 +6,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
 
   get '/profile', to: 'users#show'
-  get '/payments/new', to: 'payments#new'
-  post "/payments", to: 'payments#create'
-  get '/payments/complete', to: 'payments#complete'
+  post '/payments/new', to: 'payments#new'
   resources :users, only: [:new, :update]
 
   resources :styles, only: [:index]
