@@ -37,16 +37,20 @@
         <%= link_to "Styles", "/styles" %>
       </div>
         <br>
-
-      <div align='center' class="link">
-        <%= link_to "Login with Google", '/auth/google' %>
+      <% if session[:login] %>
+        <div align='center' class="link">
+          <%= form_tag '/payments/new' do %>
+            <%= label_tag :amount %>
+            <%= number_field_tag :amount %>
+            <%= submit_tag "Get Paid" %>
+            <% end %>
           </div>
-        <br>
-
-      <div align='center' class="link">
-        <%= link_to "Register"%>
-      </div>
-        <br>
+      <% else %>
+        <div align='center' class="link">
+         <%= link_to "Login with Google", '/auth/google' %>
+           </div>
+         <br>
+      <% end %>
     </nav>
     <%= yield %>
   </body>
