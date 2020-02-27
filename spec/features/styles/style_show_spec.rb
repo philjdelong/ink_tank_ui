@@ -8,16 +8,16 @@ RSpec.describe "As a user" do
          @style_3 = create(:style, name: "Tribal")
          @style_4 = create(:style, name: "Realism")
 
-         @artist_1 = create(:user, name: "Phil")
-         @artist_2 = create(:user, name: "Lain")
-         @artist_3 = create(:user, name: "Wren")
-         @artist_4 = create(:user, name: "Darren")
+         @artist_1 = create(:artist, name: "Phil")
+         @artist_2 = create(:artist, name: "Lain")
+         @artist_3 = create(:artist, name: "Wren")
+         @artist_4 = create(:artist, name: "Darren")
 
-         @artist_style_1 = create(:artist_style, user_id: @artist_1.id, style_id: @style_1.id)
-         @artist_style_2 = create(:artist_style, user_id: @artist_1.id, style_id: @style_2.id)
-         @artist_style_3 = create(:artist_style, user_id: @artist_1.id, style_id: @style_3.id)
-         @artist_style_4 = create(:artist_style, user_id: @artist_2.id, style_id: @style_1.id)
-         @artist_style_5 = create(:artist_style, user_id: @artist_3.id, style_id: @style_1.id)
+         @artist_style_1 = create(:artist_style, artist_id: @artist_1.id, style_id: @style_1.id)
+         @artist_style_2 = create(:artist_style, artist_id: @artist_1.id, style_id: @style_2.id)
+         @artist_style_3 = create(:artist_style, artist_id: @artist_1.id, style_id: @style_3.id)
+         @artist_style_4 = create(:artist_style, artist_id: @artist_2.id, style_id: @style_1.id)
+         @artist_style_5 = create(:artist_style, artist_id: @artist_3.id, style_id: @style_1.id)
 
          visit "/styles"
       end

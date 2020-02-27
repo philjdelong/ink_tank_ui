@@ -1,6 +1,6 @@
 FactoryBot.define do
     factory :artist_style do
-      user
+      artist
       style
     end
   end
