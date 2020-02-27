@@ -31,8 +31,6 @@ japanese_style = Style.create(
   name: "Japanese",
   description: "The traditional Japanese style, aka Irezumi, originated during the Edo period (1603-1868) alongside ukiyo-e — woodblock prints that were hugely popular among the merchant class at the time. Because of this, the icons found in this time-tested genre of body art come from the country's age-old folklore, featuring tattooed heroes from the Suikoden and mythological creatures like dragons, kirins, and phoenixes. In short, every tattoo done in this style tells a story about Japans rich past, and beyond their dramatic smoke and wave filled appearance, this is what makes Irezumi masterpieces so powerful."
 )
-<<<<<<< HEAD
-=======
 
 blackwork_style = Style.create(
   name: "Blackwork",
@@ -48,4 +46,3 @@ chicano_style = Style.create(
   name: "Chicano",
   description: "The Chicano style has so much cultural influence that it has gone on to influence other styles as well. Steeped in the history of things such as the Mexican Revolution, Los Angeles low-riders and Pachuco culture. Born behind bars, the aesthetic evolved from artists in prison who used what few materials they had to beautifully capture what they loved and missed on the outside. Usually fine line, black and grey, and wrapped up in the Chicano culture, this genre of tattooing is absolutely enthralling."
 )
->>>>>>> 3d73be17506c1eba587ee054a27e000ec900c788
