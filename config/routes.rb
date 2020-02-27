@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get '/profile', to: 'users#show'
   get '/payments/new', to: 'payments#new'
+  post "/payments", to: 'payments#create'
+  get '/payments/complete', to: 'payments#complete'
   resources :users, only: [:new, :update]
 
   resources :styles, only: [:index]

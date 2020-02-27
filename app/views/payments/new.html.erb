@@ -1,39 +1,15 @@
+<p align="right">
 <h1>Get Paid</h1>
-<%= form_for @payment, method: post, url: '/payments/new' do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
+<%= form_tag '/payments', method: :post do %>
+  <%= label_tag :amount %>
+  <%= text_field_tag :amount %><br>
 
-  <%= f.label :street_address %>
-  <%= f.text_field :street_address %><br>
+  <%= label_tag :title %>
+  <%= text_field_tag :title %><br>
 
-  <%= f.label :city %>
-  <%= f.text_field :city %><br>
-
-  <%= f.label :state %>
-  <%= f.text_field :state %><br>
-
-  <%= f.label :zip %>
-  <%= f.text_field :zip %><br>
-
-  <%= f.label :phone_number %>
-  <%= f.text_field :phone_number %><br>
-
-  <h3>Payment Information</h3>
-
-  <%= f.label :card_type %>
-  <%= f.text_field :card_type %><br>
-
-  <%= f.label :card_number %>
-  <%= f.text_field :card_number %><br>
-
-  <%= f.label :card_expiration %>
-  <%= f.text_field :card_expiration %><br>
-
-  <%= f.label :amount %>
-  <%= f.text_field :amount %><br>
-
-  <%= f.label :notes %>
-  <%= f.text_field :notes %><br>
+  <%= label_tag :description %>
+  <%= text_field_tag :description %><br>
 
   <%= submit_tag "Submit Payment" %><br>
 <% end %>
+</p>

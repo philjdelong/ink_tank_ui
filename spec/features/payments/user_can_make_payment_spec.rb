@@ -64,14 +64,11 @@ RSpec.describe "as an artist" do
     visit '/profile'
     click_on "Get Paid"
     expect(current_path).to eq('/payments/new')
-
-    fill_in :name, with: 'Cyril Figgis'
+    fill_in :title, with: 'Mermaid Tattoo'
     fill_in :amount, with: '200'
-    fill_in :card_number, with: 1234567898765432
-    fill_in :card_type, with: 'tok_mastercard'
-    click_button 'Submit'
-
-    expect(current_path).to eq('/dashboard')
+    fill_in :description, with: 'Tattoo complete, final payment'
+    click_on 'Submit Payment'
+    expect(current_path).to eq('/profile')
     expect(page).to have_content('Charge complete')
   end
 end
