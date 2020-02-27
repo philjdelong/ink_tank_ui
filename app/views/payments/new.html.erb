@@ -1,15 +1,9 @@
-<p align="right">
-<h1>Get Paid</h1>
-<%= form_tag '/payments', method: :post do %>
-  <%= label_tag :amount %>
-  <%= text_field_tag :amount %><br>
-
-  <%= label_tag :title %>
-  <%= text_field_tag :title %><br>
-
-  <%= label_tag :description %>
-  <%= text_field_tag :description %><br>
-
-  <%= submit_tag "Submit Payment" %><br>
-<% end %>
-</p>
+<div class="forms">
+<h1>All payments are processed through Stripe.</h1>
+<h3>By clicking the button below, you agree to allow Stripe to charge your card on behalf of your tattoo artist or shop.</h3>
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+  data-key="<%= ENV['STRIPE_KEY'] %>"
+  data-description="tattoo payment"
+  data-amount= "<%= @amount %>"
+  data-locale="auto"></script>
+</div>
