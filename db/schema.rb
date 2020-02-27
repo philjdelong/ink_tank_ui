@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_25_015052) do
+ActiveRecord::Schema.define(version: 2020_02_26_155104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artist_styles", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "style_id"
+    t.index ["style_id"], name: "index_artist_styles_on_style_id"
+    t.index ["user_id"], name: "index_artist_styles_on_user_id"
+  end
 
   create_table "shops", force: :cascade do |t|
     t.string "name"
@@ -43,5 +50,7 @@ ActiveRecord::Schema.define(version: 2020_02_25_015052) do
     t.index ["shop_id"], name: "index_users_on_shop_id"
   end
 
+  add_foreign_key "artist_styles", "styles"
+  add_foreign_key "artist_styles", "users"
   add_foreign_key "users", "shops"
 end
