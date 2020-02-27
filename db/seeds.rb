@@ -1,5 +1,5 @@
 ArtistStyle.destroy_all
-User.destroy_all
+Artist.destroy_all
 Style.destroy_all
 Shop.destroy_all
 
@@ -59,7 +59,7 @@ chicano_style = Style.create(
 )
 
 # artists
-@artist_1 = User.create(
+@phil = Artist.create(
    name: 'Phil',
    price_per_hour: 10.0,
    bio: 'I love tattoo.',
@@ -68,7 +68,7 @@ chicano_style = Style.create(
    login: 'phil@email.com',
    token: 'token'
 )
-@artist_2 = User.create(
+@wren = Artist.create(
    name: 'Wren',
    price_per_hour: 10.0,
    bio: 'I love tattoo.',
@@ -77,7 +77,7 @@ chicano_style = Style.create(
    login: 'wren@email.com',
    token: 'token'
 )
-@artist_3 = User.create(
+@lain = Artist.create(
    name: 'Lain',
    price_per_hour: 10.0,
    bio: 'I love tattoo.',
@@ -86,7 +86,7 @@ chicano_style = Style.create(
    login: 'lain@email.com',
    token: 'token'
 )
-@artist_4 = User.create(
+@darren = Artist.create(
    name: "Darren",
    price_per_hour: 10.0,
    bio: 'I love tattoo.',
@@ -98,22 +98,26 @@ chicano_style = Style.create(
 
 # artist_styles
 @artist_style_1 = ArtistStyle.create(
-   user_id: @artist_1.id, 
-   style_id: @style_1.id
+   artist_id: @phil.id, 
+   style_id: @traditional_style.id
 )
 @artist_style_2 = ArtistStyle.create(
-   user_id: @artist_1.id, 
-   style_id: @style_2.id
+   artist_id: @phil.id, 
+   style_id: @realism_style.id
 )
 @artist_style_3 = ArtistStyle.create(
-   user_id: @artist_1.id, 
-   style_id: @style_3.id
+   artist_id: @phil.id, 
+   style_id: @watercolor_style.id
 )
 @artist_style_4 = ArtistStyle.create(
-   user_id: @artist_2.id, 
-   style_id: @style_1.id
+   artist_id: @wren.id, 
+   style_id: @traditional_style.id
 )
 @artist_style_5 = ArtistStyle.create(
-   user_id: @artist_3.id, 
-   style_id: @style_1.id
+   artist_id: @lain.id, 
+   style_id: @traditional_style.id
+)
+@artist_style_6 = ArtistStyle.create(
+   artist_id: @darren.id, 
+   style_id: @traditional_style.id
 )
