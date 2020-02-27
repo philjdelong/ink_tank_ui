@@ -2,12 +2,12 @@ class SessionsController < ApplicationController
 
   def create
     user_info = request.env['omniauth.auth']
-    session[:github] = user_info[:uid]
-    if User.exists?(uid: user_info[:uid]) == false
-      User.create_user(user_info)
+    session[:login] = user_info[:uid]
+    if Artist.exists?(uid: user_info[:uid]) == false
+      Artist.save_user_oauth_info(user_info)
       redirect_to new_shop_path
     else
-      User.update_user(user_info, current_user)
+      Artist.update_user(user_info, current_user)
       redirect_to profile_path
     end
   end

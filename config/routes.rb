@@ -1,17 +1,25 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  get '/', to: 'welcome#index'
+  root 'welcome#index'
 
   get '/auth/:provider/callback', to: 'sessions#create'
 
-  get '/profile', to: 'users#show'
+  get '/profile', to: 'artists#show'
 
-  resources :users, only: [:new, :update]
+  resources :artists, only: [:new, :update, :show]
 
   resources :styles, only: [:index, :show]
 
   resources :shops, only: [:show, :new, :index, :create] do
-    resources :users, only: [:new, :create, :show]
+    resources :artists, only: [:new, :create, :show]
+  end
+
+  namespace :users do
+    resources :appointments
+  end
+
+  resources :artists do
+    resources :appointments
   end
 end

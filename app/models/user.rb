@@ -8,6 +8,8 @@ class User < ApplicationRecord
   # validates_presence_of :price_per_hour
   # validates_presence_of :bio
 
+  has_many :appointments
+
   def self.update_user(user_info, current_user)
     current_user.uid = user_info[:uid]
     current_user.token = user_info[:credentials][:token]
