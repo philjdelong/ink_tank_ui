@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   belongs_to :shop, optional: true
 
+  has_many :artist_styles
+  has_many :styles, through: :artist_styles
+
   # validates_presence_of :name
   # validates_presence_of :price_per_hour
   # validates_presence_of :bio
