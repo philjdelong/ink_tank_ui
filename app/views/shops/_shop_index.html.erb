@@ -1,0 +1,7 @@
+<%= form_for path, method: method do |f| %>
+  <% @shops.each do |shop| %>
+    <%= radio_button_tag 'shop_id', "#{shop.id}" %> <%= shop.name %> <%= shop.street_address %>
+    
+  <% end %>
+  <%= submit_tag button_text %>
+<% end %>

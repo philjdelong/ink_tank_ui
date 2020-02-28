@@ -6,6 +6,8 @@ class ShopsController < ApplicationController
       @new_shop = Shop.new(zip: params["/shops"][:zip_code])
       @shops = Shop.where(zip: params["/shops"][:zip_code])
     end
+
+    render locals: { artist: current_user }
   end
 
   def create
@@ -27,6 +29,12 @@ class ShopsController < ApplicationController
     @shops = Shop.all
   end
 
+  def update
+    shop = Shop.find(params[:shop_id])
+    current_user.update_user_shop(current_user, shop.id)
+    flash[:notice] = 'Shop successfully added'
+    redirect_to profile_path
+  end
 
   def shop_params
     params.require(:shop).permit(:name, :street_address, :city, :phone_number, :zip)

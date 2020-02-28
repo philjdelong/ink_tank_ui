@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   def index
-    @appointments = Appointment.select(:id, :date, :description).where(user_id: params[:artist_id])
+    @appointments = Appointment.select(:id, :date, :description).where(artist_id: params[:artist_id])
     @artist_id = params[:artist_id]
   end
 

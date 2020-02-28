@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   resources :styles, only: [:index, :show]
 
-  resources :shops, only: [:show, :new, :index, :create] do
+  resources :shops, only: [:show, :new, :index, :create, :update] do
     resources :artists, only: [:new, :create, :show]
   end
 

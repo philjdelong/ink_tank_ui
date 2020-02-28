@@ -54,11 +54,10 @@ RSpec.describe Artist, type: :model do
 
   it "can fill out the remaining user fields" do
     shop = Shop.create(name: 'Default shop', street_address: '123 Main', city: 'Denver', zip: '80206', phone_number: '123456789')
-    traditional_style = Style.create(id: 1, name: "Traditional", description: "The traditional style!" )
+    traditional_style = Style.create( name: "Traditional", description: "The traditional style!" )
     artist =  Artist.create(shop_id: shop.id, uid: '123456789', token: '1234abc', login: 'example@gmail.com')
-    style = ArtistStyle.create(id: 1, artist_id: artist.id, style_id: traditional_style.id)
-    params = { artist: {name: 'Harry Potter', price_per_hour: '100', bio: 'No dark marks'}, style_ids: [style.id]}
-
+    artist_style = ArtistStyle.create(artist_id: artist.id, style_id: traditional_style.id)
+    params = { artist: {name: 'Harry Potter', price_per_hour: '100', bio: 'No dark marks'}, style_ids: [traditional_style.id]}
 
     expect(artist.name).to eq(nil)
     expect(artist.price_per_hour).to eq(nil)

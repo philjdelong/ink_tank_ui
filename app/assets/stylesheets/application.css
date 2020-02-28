@@ -117,6 +117,33 @@ nav.master_nav {
    font-family: 'Courier New', Courier, monospace;
 }
 
+p {
+  font-size: 18px;
+  color: rgb(102, 166, 205);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+div.polaroid {
+  margin: 50px 50px 40px 40px;
+  width: 40%;
+  padding: 2%;
+  background-color: black;
+  box-shadow: 0 4px 8px 0 rgba(202, 204, 198, 0), 0 6px 20px 0 rgba(202, 204, 198, 0);
+  margin-bottom: 25px;
+}
+
+
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+  max-width: 30%;
+  max-height: 20%;
+  float: right;
+  padding-right: 3%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
 .checkbox_container {
   display: block;
   position: relative;
@@ -174,7 +201,6 @@ nav.master_nav {
 .container input:checked ~ .checkmark {
   background-color: grey;
 }
-
 
 .profile img {
   height: 200px;
