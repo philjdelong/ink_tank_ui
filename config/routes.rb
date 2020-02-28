@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post '/payments/new', to: 'payments#new'
   resources :artists, only: [:new, :update, :show]
 
-  resources :styles, only: [:index]
+  resources :styles, only: [:index, :show]
 
   resources :shops, only: [:show, :new, :index, :create] do
     resources :artists, only: [:new, :create, :show]

@@ -1,0 +1,18 @@
+<h1 class='title' align='center'><%= @style.name %></h1>
+<p class='description' align='center'><%= @style.description %></p>
+
+<h3 align='center'>Artists who perform this style:</h3>
+ 
+ <section class='artists'>
+    <% @style.artists.each do |artist| %>
+        <span class='link'><%= link_to "#{artist.name}" %></span>
+    <% end %>
+</section>
+
+<section align='center' class='images'>
+    <% @images.each do |image_result| %>
+        <section class='image'>
+        <img src= <%= image_result[:original] %>>
+        </section>
+    <% end %>
+</section>

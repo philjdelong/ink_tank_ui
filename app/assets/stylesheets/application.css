@@ -18,6 +18,16 @@ body {
    background-color: black;
 }
 
+h3 {
+   float: right;
+   width: 70%;
+   padding-right: 5%;
+   padding-left: 5%;
+   font-size: 30px;
+   color: rgb(205, 184, 102);
+   font-family: 'Courier New', Courier, monospace;
+}
+
 nav.master_nav {
   background-color: rgb(0, 0, 0);
   width: 25%;
@@ -39,11 +49,17 @@ nav.master_nav {
    font-family: 'Courier New', Courier, monospace;
 }
 
+.artists {
+   float: right;
+   width: 70%;
+}
+
 .images {
    padding-top: 5%;
    float: right;
    width: 70%;
 }
+
 .image img{
    max-width: 30%;
    max-height: 20%;
@@ -68,7 +84,7 @@ nav.master_nav {
    float: right;
    padding-right: 5%;
    padding-left: 5%;
-   color: rgb(205, 102, 102);
+   color: whitesmoke;
    font-family: 'Courier New', Courier, monospace;
 }
 

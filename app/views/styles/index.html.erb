@@ -5,8 +5,8 @@
    <br>
 
 <% @styles.each do |style| %>
-   <div class="style" align='left'>
-      <h3><%= style.name %></h3>
+   <div class='style' align='left'>
+      <div class="link"><%= link_to "#{style.name}", "/styles/#{style.id}" %></div>
       <p><%= style.description %></p>
    </div>
 <% end %>

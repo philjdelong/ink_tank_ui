@@ -1,6 +1,17 @@
+ArtistStyle.destroy_all
+Artist.destroy_all
 Style.destroy_all
-default_shop = Shop.create!(name: 'Default shop', street_address: '123 Main', city: 'Denver', zip: '80206', phone_number: '123456789')
+Shop.destroy_all
 
+# shops
+default_shop = Shop.create!(
+   name: 'Default shop', 
+   street_address: '123 Main', 
+   city: 'Denver', zip: '80206', 
+   phone_number: '123456789'
+)
+
+# styles
 traditional_style = Style.create(
  name: "Traditional",
  description: "The traditional style, also called old school tattoo style, American traditional tattoo style, classic tattoo style or Western traditional tattoo style, is known for its bold lines, bright colors, and iconic designs like roses, anchors, and gorgeous lady heads. With heavy hitters in the history of Traditional like Sailor Jerry, Don Ed Hardy, Bert Grimm, and Lyle Tuttle, this style of tattooing is one of the most well-known and beloved aesthetics within the tattoo community. They're gorgeous from the get go, age beautifully, and are filled with the history of tattooing. You can't really go wrong with a piece in this genre!" )
@@ -45,4 +56,68 @@ illustrative_style = Style.create(
 chicano_style = Style.create(
   name: "Chicano",
   description: "The Chicano style has so much cultural influence that it has gone on to influence other styles as well. Steeped in the history of things such as the Mexican Revolution, Los Angeles low-riders and Pachuco culture. Born behind bars, the aesthetic evolved from artists in prison who used what few materials they had to beautifully capture what they loved and missed on the outside. Usually fine line, black and grey, and wrapped up in the Chicano culture, this genre of tattooing is absolutely enthralling."
+)
+
+# artists
+phil = Artist.create(
+   name: 'Phil',
+   price_per_hour: 10.0,
+   bio: 'I love tattoo.',
+   shop_id: default_shop.id,
+   uid: '11111',
+   login: 'phil@email.com',
+   token: 'token'
+)
+wren = Artist.create(
+   name: 'Wren',
+   price_per_hour: 10.0,
+   bio: 'I love tattoo.',
+   shop_id: default_shop.id,
+   uid: '22222',
+   login: 'wren@email.com',
+   token: 'token'
+)
+lain = Artist.create(
+   name: 'Lain',
+   price_per_hour: 10.0,
+   bio: 'I love tattoo.',
+   shop_id: default_shop.id,
+   uid: '33333',
+   login: 'lain@email.com',
+   token: 'token'
+)
+darren = Artist.create(
+   name: "Darren",
+   price_per_hour: 10.0,
+   bio: 'I love tattoo.',
+   shop_id: default_shop.id,
+   uid: '44444',
+   login: 'darren@email.com',
+   token: 'token'
+)
+
+# artist_styles
+artist_style_1 = ArtistStyle.create(
+   artist_id: phil.id, 
+   style_id: traditional_style.id
+)
+artist_style_2 = ArtistStyle.create(
+   artist_id: phil.id, 
+   style_id: realism_style.id
+)
+artist_style_3 = ArtistStyle.create(
+   artist_id: phil.id, 
+   style_id: watercolor_style.id
+)
+artist_style_4 = ArtistStyle.create(
+   artist_id: wren.id, 
+   style_id: traditional_style.id
+)
+artist_style_5 = ArtistStyle.create(
+   artist_id: lain.id, 
+   style_id: traditional_style.id
+)
+artist_style_6 = ArtistStyle.create(
+   artist_id: darren.id, 
+   style_id: traditional_style.id
 )
