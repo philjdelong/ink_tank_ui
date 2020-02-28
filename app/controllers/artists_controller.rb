@@ -19,7 +19,7 @@ class ArtistsController < ApplicationController
   end
 
   def show
-    @artist = Artist.find(params[:artist_id])
+    @artist = Artist.find(params[:id])
   end
 
   def update
@@ -28,13 +28,9 @@ class ArtistsController < ApplicationController
     redirect_to new_shop_path
   end
 
-  def show
-    render locals: { artist: current_user }
-  end
-
   private
 
   def user_params
-    params.require(:artist).permit(:name, :price_per_hour, :bio)
+    params.require(:artist).permit(:name, :price_per_hour, :bio, :image)
   end
 end
