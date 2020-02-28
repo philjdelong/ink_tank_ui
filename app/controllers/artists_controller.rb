@@ -19,7 +19,7 @@ class ArtistsController < ApplicationController
   
 
   def show
-    render locals: { artist: current_user }
+    @artist = Artist.find(params[:artist_id])
   end
 
   def update

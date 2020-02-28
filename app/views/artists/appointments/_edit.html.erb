@@ -1,8 +1,0 @@
-<h4>Edit Appointment</h4>
-<%= form_tag artists_appointment_path(appointment.id), method: :patch do %>
-  <%= label_tag :date %>
-  <%= text_field_tag :date, appointment.date %>
-  <%= label_tag :description %>
-  <%= text_field_tag :description, appointment.description %>
-  <%= submit_tag 'Update Appointment' %>
-<% end %>
