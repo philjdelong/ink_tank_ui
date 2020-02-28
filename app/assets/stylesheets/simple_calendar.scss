@@ -35,7 +35,6 @@
   td {
     padding: 6px;
     vertical-align: top;
-    width: 14%;
 
     border: 1px solid #ddd;
     border-top-color: rgb(221, 221, 221);
@@ -88,6 +87,7 @@
   .has-events {}
 
   td,
+  tr,
   th {
     width: 14%;
   }
