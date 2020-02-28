@@ -24,7 +24,7 @@ h3 {
    padding-right: 5%;
    padding-left: 5%;
    font-size: 30px;
-   color: rgb(205, 184, 102);
+   color: whitesmoke;
    font-family: 'Courier New', Courier, monospace;
 }
 
@@ -66,6 +66,8 @@ nav.master_nav {
    padding-right: 3%;
    padding-top: 1%;
    padding-bottom: 1%;
+   border-radius: 1%;
+   border-color: turquoise;
 }
 
 .title {
@@ -117,7 +119,7 @@ nav.master_nav {
 .forms {
   float: right;
   width: 65%;
-  padding: 10%;
+  padding: 3%;
   font-size: 24px;
   color: rgb(102, 166, 205);
   font-family: 'Courier New', Courier, monospace;
@@ -125,7 +127,7 @@ nav.master_nav {
 
 p {
   font-size: 18px;
-  color: rgb(102, 166, 205);
+  color: wheat;
   font-family: 'Courier New', Courier, monospace;
 }
 
@@ -200,5 +202,5 @@ div.container {
 }
 
 .profile img {
-  width: 33%;
+  width: 50%;
 }
