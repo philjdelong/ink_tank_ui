@@ -16,7 +16,7 @@ class Artist::AppointmentsController < ApplicationController
 
   def create
     new_appointment = Appointment.new(appointment_params)
-    artist = current_artist
+    artist = current_user
     artist.appointments << new_appointment
 
     if new_appointment.save
@@ -25,7 +25,7 @@ class Artist::AppointmentsController < ApplicationController
       flash[:notice] = 'Appointment not saved please try again'
     end
 
-    redirect_to artists_appointments_path
+    redirect_to "/artist/appointments"
   end
 
   def edit
@@ -52,7 +52,7 @@ class Artist::AppointmentsController < ApplicationController
 
     flash[:notice] = 'Appointment deleted'
 
-    redirect_to artist_appointments_path
+    redirect_to "/artist/appointments"
   end
 
   private
