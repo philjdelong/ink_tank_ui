@@ -1,6 +1,6 @@
 class AdviceController < ApplicationController
   def show
-    advice = Faraday.get('http://localhost:9292/advice')
+    advice = Faraday.get('https://ink-tank-be.herokuapp.com')
     @advice = JSON.parse(advice.body)
   end
 end
