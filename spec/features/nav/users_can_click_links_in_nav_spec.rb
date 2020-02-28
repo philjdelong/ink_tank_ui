@@ -11,4 +11,14 @@ RSpec.describe "A visitor" do
       end
       expect(current_path).to eq("/")
    end
+
+   it "has bad advice" do
+     visit "/"
+
+     within "nav" do
+        expect(page).to have_link("Bad Advice")
+        click_on "Bad Advice"
+     end
+     expect(current_path).to eq("/advice")
+   end
 end

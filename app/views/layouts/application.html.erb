@@ -37,6 +37,11 @@
         <%= link_to "Styles", "/styles" %>
       </div>
         <br>
+
+      <div align='center' class="link">
+       <%= link_to "Bad Advice", '/advice' %>
+         </div>
+       <br>
       <% if session[:login] %>
         <div align='center' class="link">
           <%= form_tag '/payments/new' do %>
