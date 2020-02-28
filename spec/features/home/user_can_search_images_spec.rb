@@ -11,7 +11,7 @@ RSpec.describe "As a user" do
          click_on "Find Images"
          expect(current_path).to eq("/")
          
-         expect(page).to have_css(".image", count: 10)
+         expect(page).to have_css(".image", count: 9)
       end
    end
 end

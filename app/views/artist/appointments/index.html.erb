@@ -1,6 +1,6 @@
 <div class="simple-calendar" align='right'>
   <%= month_calendar(attribute: :date, events: @appointments) do |date, appointments| %>
-    <%= link_to date, artists_appointment_path(date, format: :js), remote: true %>
+    <%= link_to date, artist_appointment_path(date, format: :js), remote: true %>
 
     <% appointments.each do |appointment| %>
       <div>

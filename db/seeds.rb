@@ -1,3 +1,4 @@
+Appointment.destroy_all
 ArtistStyle.destroy_all
 Artist.destroy_all
 Style.destroy_all

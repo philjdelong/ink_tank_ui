@@ -1,6 +1,7 @@
 class Style < ApplicationRecord
   has_many :artist_styles
   has_many :artists, through: :artist_styles
+  
   validates_presence_of :name
   validates_presence_of :description
 

@@ -3,6 +3,7 @@
     color: rgb(102, 166, 205);
     font-family: 'Courier New', Courier, monospace;
     width: 70%;
+    padding: 2%;
   }
 
   table {
@@ -34,7 +35,6 @@
   td {
     padding: 6px;
     vertical-align: top;
-    width: 14%;
 
     border: 1px solid #ddd;
     border-top-color: rgb(221, 221, 221);
@@ -63,8 +63,14 @@
   .wday-5 {}
   .wday-6 {}
 
+  .today a{
+    color: black;
+    background: rgb(118, 174, 53);
+  }
+
   .today {
-    background: #FFFFC0
+    color: black;
+    background: rgb(118, 174, 53);
   }
 
   .past {}
@@ -73,12 +79,18 @@
   .start-date {}
 
   .prev-month {
-    background: #DDD;
+    background: rgb(116, 30, 103);
   }
   .next-month {
-    background: #DDD;
+    background: rgb(116, 30, 103);
   }
   .current-month {}
 
   .has-events {}
+
+  td,
+  tr,
+  th {
+    width: 14%;
+  }
 }

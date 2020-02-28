@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback', to: 'sessions#create'
 
-  get '/profile', to: 'artists#show'
   post '/payments/new', to: 'payments#new'
   resources :artists, only: [:new, :update, :show]
 
@@ -15,11 +14,12 @@ Rails.application.routes.draw do
     resources :artists, only: [:new, :create, :show]
   end
 
-  namespace :users do
-    resources :appointments
+  resources :artists do
+    resources :appointments, only: [:index, :create]
   end
 
-  resources :artists do
+  namespace :artist do
+    resources :dashboard
     resources :appointments
-  end
+  end 
 end

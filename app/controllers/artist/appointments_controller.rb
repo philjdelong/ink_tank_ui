@@ -1,8 +1,8 @@
-class Users::AppointmentsController < ApplicationController
+class Artist::AppointmentsController < ApplicationController
   protect_from_forgery except: :show
 
   def index
-    @appointments = Appointment.where(user_id: current_user.id)
+    @appointments = Appointment.where(artist_id: current_user.id)
   end
 
   def show
@@ -16,8 +16,8 @@ class Users::AppointmentsController < ApplicationController
 
   def create
     new_appointment = Appointment.new(appointment_params)
-    user = current_user
-    user.appointments << new_appointment
+    artist = current_user
+    artist.appointments << new_appointment
 
     if new_appointment.save
       flash[:notice] = 'Appointment created successfully'
@@ -25,12 +25,11 @@ class Users::AppointmentsController < ApplicationController
       flash[:notice] = 'Appointment not saved please try again'
     end
 
-    redirect_to users_appointments_path
+    redirect_to "/artist/appointments"
   end
 
   def edit
     @appointment = Appointment.find(params[:id])
-
     respond_to do |format|
       format.js { render layout: false }
     end
@@ -45,7 +44,7 @@ class Users::AppointmentsController < ApplicationController
       flash[:notice] = 'Appointment not updated, please try again'
     end
 
-    redirect_to users_appointments_path
+    redirect_to "/artist/appointments"
   end
 
   def destroy
@@ -53,7 +52,7 @@ class Users::AppointmentsController < ApplicationController
 
     flash[:notice] = 'Appointment deleted'
 
-    redirect_to users_appointments_path
+    redirect_to "/artist/appointments"
   end
 
   private

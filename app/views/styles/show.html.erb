@@ -5,7 +5,7 @@
  
  <section class='artists'>
     <% @style.artists.each do |artist| %>
-        <span class='link'><%= link_to "#{artist.name}" %></span>
+        <span class='link'><%= link_to "#{artist.name}", "/artists/#{artist.id}" %></span>
     <% end %>
 </section>
 

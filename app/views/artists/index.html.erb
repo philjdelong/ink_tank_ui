@@ -1,5 +1,13 @@
-<div class="forms">
+<h1 class='title' align='center'>InkTank Artists</h1>
+
+<div class="profile">
   <% @artists.each do |artist| %>
-    <%= link_to "#{artist.name}", artist_path(artist.id) %>
+    <h3 class='title'><%= link_to "#{artist.name}", "/artists/#{artist.id}" %></h3>
+    <br><br><br><br><br><br>
+    <span>Bio: <%= "#{artist.bio}" %></span>
+    <section class="profile img">
+      <img src = <%= artist.image %>>
+    </section>
+    <br><br><br>
   <% end %>
 </div>
