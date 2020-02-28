@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
   def create
     user_info = request.env['omniauth.auth']
     session[:login] = user_info[:uid]
-    require "pry"; binding.pry
     if !Artist.exists?(uid: user_info[:uid]) || current_user.name == nil
       Artist.save_user_oauth_info(user_info)
       redirect_to new_artist_path
