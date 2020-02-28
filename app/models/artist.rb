@@ -1,5 +1,7 @@
 class Artist < ApplicationRecord
 
+  has_many :appointments
+
   has_many :artist_styles
   has_many :artists, through: :artist_styles
 
