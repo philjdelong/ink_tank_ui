@@ -1,6 +1,6 @@
 class AppointmentsController < ApplicationController
   def index
-    @appointments = Appointment.select(:id, :date, :description).where(user_id: params[:artist_id])
+    @appointments = Appointment.select(:id, :date, :description).where(artist_id: params[:artist_id])
     @artist_id = params[:artist_id]
   end
 
@@ -14,8 +14,8 @@ class AppointmentsController < ApplicationController
 
   def create
     new_appointment = Appointment.new(appointment_params)
-    user = User.find(params[:artist_id])
-    user.appointments << new_appointment
+    artist = Artist.find(params[:artist_id])
+    artist.appointments << new_appointment
 
     if new_appointment.save
       flash[:notice] = 'Appointment created successfully'
@@ -23,7 +23,7 @@ class AppointmentsController < ApplicationController
       flash[:notice] = 'Appointment not saved please try again'
     end
 
-    redirect_to artist_appointments_path(user.id)
+    redirect_to artist_appointments_path(artist.id)
   end
 
   private
