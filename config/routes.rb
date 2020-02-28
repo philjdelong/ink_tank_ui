@@ -16,11 +16,11 @@ Rails.application.routes.draw do
   end
 
   resources :artists do
-    resources :appointments, only: [:index, :create]
+    resources :appointments, only: [:index, :create, :show]
   end
 
   namespace :artist do
     resources :dashboard
     resources :appointments
-  end 
+  end
 end
