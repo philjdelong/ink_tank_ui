@@ -1,0 +1,10 @@
+<div align='right' class="forms">
+  <section class="profile img">
+    <img src = <%= artist.image %>>
+</section>
+
+  <p>Name: <%= artist.name %>
+  <p>Hourly rate: <%= number_to_currency(artist.price_per_hour) %></p>
+  <p>Bio: <%= artist.bio %></p>
+  <p><%= link_to 'Appointments', "/artist/appointments" %></p>
+</div>
