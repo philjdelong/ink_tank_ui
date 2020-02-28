@@ -1,5 +1,5 @@
-<div class="forms">
+<div class="profile">
   <% @artists.each do |artist| %>
-    <%= link_to "#{artist.name}", artist_path(artist.id) %>
+    <%= link_to "#{artist.name}", "/artists/#{artist.id}" %>
   <% end %>
 </div>

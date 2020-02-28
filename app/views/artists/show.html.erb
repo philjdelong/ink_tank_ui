@@ -1,19 +1,19 @@
 
 <div align='right' class="forms">
   <section class="profile img">
-    <img src = <%= artist.image %>>
+    <img src = <%= @artist.image %>>
 </section>
 
-  <p>Name: <%= artist.name %>
-  <p>Hourly rate: <%= number_to_currency(artist.price_per_hour) %></p>
-  <p>Bio: <%= artist.bio %></p>
+  <p>Name: <%= @artist.name %>
+  <p>Hourly rate: <%= number_to_currency(@artist.price_per_hour) %></p>
+  <p>Bio: <%= @artist.bio %></p>
 
-  <p><%= link_to 'Appointments', artist_appointments_path(artist.id) %></p>
+  <p><%= link_to 'Appointments', artist_appointments_path(@artist.id) %></p>
 </div>
 
-<p>artist.name styles</p>
-  <% ImageFetcher.new.get_single_images(@current_user).each do |image|  %>
-  <div class = container>
+<p><%= @artist.name %> styles</p>
+  <% ImageFetcher.new.get_single_images(@artist).each do |image|  %>
+  <div class = 'container'>
       <p><%= image.style %></p>
       <img src= "<%= image.url %>" style="width:100%" >
   </div>
