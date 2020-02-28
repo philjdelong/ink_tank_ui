@@ -15,11 +15,12 @@ Rails.application.routes.draw do
     resources :artists, only: [:new, :create, :show]
   end
 
-  namespace :artists do
-    resources :appointments
+  resources :artists do
+    resources :appointments, only: [:index, :create]
   end
 
-  resources :artists do
+  namespace :artist do
+    resources :dashboard
     resources :appointments
-  end
+  end 
 end
