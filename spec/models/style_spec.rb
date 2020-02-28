@@ -8,6 +8,6 @@ describe Style, type: :model do
 
   describe 'relationships' do
     it { should have_many(:artist_styles) }
-    it { should have_many(:artists).through(:artist_styles) }
+    it { should have_many(:artists) }
   end
 end
