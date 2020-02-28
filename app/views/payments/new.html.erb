@@ -1,9 +1,9 @@
-<div class="forms">
-<h1>All payments are processed through Stripe.</h1>
-<h3>By clicking the button below, you agree to allow Stripe to charge your card on behalf of your tattoo artist or shop.</h3>
+<span class="forms" align='right'>
+<h3>All payments are processed through Stripe.</h3>
+<p>By clicking the button below, you agree to allow Stripe to charge your card on behalf of your tattoo artist or shop.</p>
 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
   data-key="<%= ENV['STRIPE_KEY'] %>"
   data-description="tattoo payment"
   data-amount= "<%= @amount %>"
   data-locale="auto"></script>
-</div>
+</span>
