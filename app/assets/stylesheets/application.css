@@ -18,6 +18,16 @@ body {
    background-color: black;
 }
 
+h3 {
+   float: right;
+   width: 70%;
+   padding-right: 5%;
+   padding-left: 5%;
+   font-size: 30px;
+   color: rgb(205, 184, 102);
+   font-family: 'Courier New', Courier, monospace;
+}
+
 nav.master_nav {
   background-color: rgb(0, 0, 0);
   width: 25%;
@@ -39,11 +49,17 @@ nav.master_nav {
    font-family: 'Courier New', Courier, monospace;
 }
 
+.artists {
+   float: right;
+   width: 70%;
+}
+
 .images {
    padding-top: 5%;
    float: right;
    width: 70%;
 }
+
 .image img{
    max-width: 30%;
    max-height: 20%;
@@ -68,7 +84,7 @@ nav.master_nav {
    float: right;
    padding-right: 5%;
    padding-left: 5%;
-   color: rgb(205, 102, 102);
+   color: whitesmoke;
    font-family: 'Courier New', Courier, monospace;
 }
 
@@ -106,6 +122,33 @@ nav.master_nav {
   font-size: 24px;
   color: rgb(102, 166, 205);
   font-family: 'Courier New', Courier, monospace;
+}
+
+p {
+  font-size: 18px;
+  color: rgb(102, 166, 205);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+div.polaroid {
+  margin: 50px 50px 40px 40px;
+  width: 40%;
+  padding: 2%;
+  background-color: black;
+  box-shadow: 0 4px 8px 0 rgba(202, 204, 198, 0), 0 6px 20px 0 rgba(202, 204, 198, 0);
+  margin-bottom: 25px;
+}
+
+
+div.container {
+  text-align: center;
+  padding: 10px 20px;
+  max-width: 30%;
+  max-height: 20%;
+  float: right;
+  padding-right: 3%;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
 .checkbox_container {
@@ -156,7 +199,6 @@ nav.master_nav {
 .container input:checked ~ .checkmark {
   background-color: grey;
 }
-
 
 .profile img {
   width: 33%;
