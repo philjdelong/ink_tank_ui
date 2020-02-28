@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback', to: 'sessions#create'
 
-  get '/profile', to: 'artists#show'
   post '/payments/new', to: 'payments#new'
   resources :artists, only: [:new, :update, :show]
 

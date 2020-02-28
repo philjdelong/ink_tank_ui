@@ -1,13 +1,10 @@
+<h3 align='center'>Artist Dashboard</h3>
 <div align='left' class="profile">
   <section class="profile img">
     <img src = <%= artist.image %>>
   </section>
-
-  <h3>Artist: <%= artist.name %></h3>
   <p>Hourly rate: <%= number_to_currency(artist.price_per_hour) %></p>
   <p>Bio: <%= artist.bio %></p>
-  <p><%= link_to 'Appointments', "/artist/appointments" %></p>
-
   <div class="link">
     <%= form_tag '/payments/new' do %>
       <%= label_tag :amount %>
@@ -15,4 +12,6 @@
       <%= submit_tag "Get Paid" %>
     <% end %>
   </div>
+    <br>
+  <p class='link' align='left'><%= link_to 'Appointments', "/artist/appointments" %></p>
 </div>

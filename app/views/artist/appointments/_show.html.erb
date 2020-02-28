@@ -8,8 +8,8 @@
     </tr>
   <% end %>
 </table>
-<h4>Create Event</h4>
-<div id='forms' align='right'>
+<h1>Create Event</h1>
+<span align='right'>
   <%= form_tag "/artist/appointments", id: 'artist-new-appointment' do %>
     <%= label_tag :date %>
     <%= text_field_tag :date, appointment_date %>
@@ -17,4 +17,4 @@
     <%= text_field_tag :description, nil, id: 'new-desc' %>
     <%= submit_tag 'Add Appointment' %>
   <% end %>
-</div>
+</span>

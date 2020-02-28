@@ -1,4 +1,4 @@
-<h4>Edit Appointment</h4>
+<h4 class='forms'>Edit Appointment</h4>
 <%= form_tag artist_appointment_path(appointment.id), method: :patch do %>
   <%= label_tag :date %>
   <%= text_field_tag :date, appointment.date %>
