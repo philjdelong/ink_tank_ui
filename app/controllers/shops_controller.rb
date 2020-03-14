@@ -22,7 +22,12 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @shop = Shop.where(params[:zip_code])
+    if params[:zip_code]
+      @shop = Shop.where(params[:zip_code])
+    else
+      @shop = Shop.find(params[:id])
+      @artists = @shop.artists
+    end
   end
 
   def index
