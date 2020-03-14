@@ -12,7 +12,7 @@ RSpec.describe "A visitor" do
       end
    end
 
-   it "has bad advice" do
+   xit "has bad advice" do
      visit "/"
 
      within "nav" do
