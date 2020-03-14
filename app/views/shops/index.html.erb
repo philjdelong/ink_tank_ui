@@ -1,0 +1,10 @@
+<h1>Ink Tank Shops</h1>
+
+<div class='shops'>
+    <% @shops.each do |shop| %>
+        <h3><%= link_to "#{shop.name}", "/shops/#{shop.id}" %></h3>
+        <p><%= shop.street_address %></p>
+        <p><%= shop.zip %></p>
+        <p><%= shop.city %></p>
+    <% end %>
+</div>
