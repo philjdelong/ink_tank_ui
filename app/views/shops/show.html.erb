@@ -1,0 +1,12 @@
+<h1><%= @shop.name %></h1>
+<p><%= @shop.street_address %></p>
+<p><%= @shop.zip %></p>
+<p><%= @shop.city %></p>
+
+<h3>Artists</h3>
+
+<span class='artists'>
+    <% @artists.each do |artist| %>
+        <%= link_to "#{artist.name}", "/artists/#{artist.id}" %>
+    <% end %>
+</span>
