@@ -4,6 +4,7 @@ gem 'stripe'
 gem 'jquery-rails'
 
 gem 'faker'
+gem 'rake'
 ruby '2.4.1'
 gem 'factory_bot_rails'
 gem 'figaro'
