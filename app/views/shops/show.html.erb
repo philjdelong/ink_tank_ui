@@ -1,12 +1,16 @@
-<h1><%= @shop.name %></h1>
-<p><%= @shop.street_address %></p>
-<p><%= @shop.zip %></p>
-<p><%= @shop.city %></p>
+<span align='left' class='search'>
+    <h1><%= @shop.name %></h1>
+    <p>Street: <%= @shop.street_address %></p>
+    <p>Zip: <%= @shop.zip %></p>
+    <p>City: <%= @shop.city %></p>
+</span>
 
-<h3>Artists</h3>
+<h1 align='left' class='search'>Artists</h1>
 
-<span class='artists'>
+<span align='left' class='search' id='artists'>
     <% @artists.each do |artist| %>
-        <%= link_to "#{artist.name}", "/artists/#{artist.id}" %>
+        <span class ='link'>
+            <%= link_to "#{artist.name}", "/artists/#{artist.id}" %>
+        </span>
     <% end %>
 </span>
