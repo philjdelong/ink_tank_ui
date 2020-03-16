@@ -5,7 +5,12 @@ gem 'jquery-rails'
 
 gem 'faker'
 
+rescue LoadError => e
+  raise e unless ENV['RAILS_ENV'] == "production"
+end
+
 ruby '2.4.1'
+gem 'factory_bot_rails'
 gem 'figaro'
 gem 'faraday'
 gem 'google_search_results'
@@ -59,7 +64,6 @@ end
 
 group :test do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'factory_bot_rails'
   gem 'capybara'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
