@@ -18,7 +18,7 @@ RSpec.describe 'As a user' do
 
             expect(page).to have_content(@phils.name, @phils.street_address)
 
-            expect(page).to have_css('.artists')
+            expect(page).to have_css('#artists')
             expect(page).to have_link(@phil.name)
             expect(page).to have_link(@courtney.name)
             expect(page).to_not have_link(@sam.name)
