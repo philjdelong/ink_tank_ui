@@ -12,7 +12,7 @@ RSpec.describe 'As a user' do
             click_link 'Shops'
             expect(current_path).to eq('/shops')
 
-            expect(page).to have_css('.shops')
+            expect(page).to have_css('#shops')
 
             click_link "Phil's Shop"
             expect(current_path).to eq("/shops/#{@phils.id}")
