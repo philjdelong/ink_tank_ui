@@ -1,0 +1,16 @@
+<span align='left' class='search'>
+    <h1><%= @shop.name %></h1>
+    <p>Street: <%= @shop.street_address %></p>
+    <p>Zip: <%= @shop.zip %></p>
+    <p>City: <%= @shop.city %></p>
+</span>
+
+<h1 align='left' class='search'>Artists</h1>
+
+<span align='left' class='search' id='artists'>
+    <% @artists.each do |artist| %>
+        <span class ='link'>
+            <%= link_to "#{artist.name}", "/artists/#{artist.id}" %>
+        </span>
+    <% end %>
+</span>

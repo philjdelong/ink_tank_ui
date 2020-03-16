@@ -20,6 +20,7 @@ class ArtistsController < ApplicationController
 
   def show
     @artist = Artist.find(params[:id])
+    @shop = Shop.find(@artist.shop_id)
   end
 
   def update

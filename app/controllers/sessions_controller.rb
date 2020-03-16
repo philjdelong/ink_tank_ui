@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       redirect_to new_artist_path
     else
       Artist.update_user(user_info, current_user)
-      redirect_to profile_path
+      redirect_to "/artist/dashboard"
       @current_user = Artist.last
     end
   end

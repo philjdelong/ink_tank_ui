@@ -5,12 +5,41 @@ Style.destroy_all
 Shop.destroy_all
 
 # shops
-default_shop = Shop.create!(
-   name: 'Default shop', 
-   street_address: '123 Main', 
-   city: 'Denver', zip: '80206', 
-   phone_number: '123456789'
-)
+12.times do
+   name = Faker::Team.mascot
+   address = Faker::Address.street_address
+   city = Faker::Address.city
+   zip = Faker::Number.between(from: 2, to: 7)
+   phone_number = Faker::PhoneNumber.phone_number
+
+   Shop.create(
+      name: "#{name}'s Tattoo Shop",
+      street_address: address,
+      city: city,
+      zip: "8020#{zip}",
+      phone_number: phone_number
+   )
+end
+
+# artists
+30.times do
+   name = Faker::Name.unique.name
+   price = "25.0"
+   phrase = Faker::ChuckNorris.fact
+   number = Faker::Number.unique.number(digits: 5)
+   shop = (Shop.all.to_a).sample.id
+   login = "#{name}@gmail.com"
+
+   Artist.create(
+      name: name,
+      price_per_hour: price,
+      bio: phrase,
+      uid: number,
+      shop_id: shop,
+      login: login,
+      token: 'token'
+   )
+end
 
 # styles
 traditional_style = Style.create(
@@ -59,66 +88,13 @@ chicano_style = Style.create(
   description: "The Chicano style has so much cultural influence that it has gone on to influence other styles as well. Steeped in the history of things such as the Mexican Revolution, Los Angeles low-riders and Pachuco culture. Born behind bars, the aesthetic evolved from artists in prison who used what few materials they had to beautifully capture what they loved and missed on the outside. Usually fine line, black and grey, and wrapped up in the Chicano culture, this genre of tattooing is absolutely enthralling."
 )
 
-# artists
-phil = Artist.create(
-   name: 'Phil',
-   price_per_hour: 10.0,
-   bio: 'I love tattoo.',
-   shop_id: default_shop.id,
-   uid: '11111',
-   login: 'phil@email.com',
-   token: 'token'
-)
-wren = Artist.create(
-   name: 'Wren',
-   price_per_hour: 10.0,
-   bio: 'I love tattoo.',
-   shop_id: default_shop.id,
-   uid: '22222',
-   login: 'wren@email.com',
-   token: 'token'
-)
-lain = Artist.create(
-   name: 'Lain',
-   price_per_hour: 10.0,
-   bio: 'I love tattoo.',
-   shop_id: default_shop.id,
-   uid: '33333',
-   login: 'lain@email.com',
-   token: 'token'
-)
-darren = Artist.create(
-   name: "Darren",
-   price_per_hour: 10.0,
-   bio: 'I love tattoo.',
-   shop_id: default_shop.id,
-   uid: '44444',
-   login: 'darren@email.com',
-   token: 'token'
-)
-
 # artist_styles
-artist_style_1 = ArtistStyle.create(
-   artist_id: phil.id, 
-   style_id: traditional_style.id
-)
-artist_style_2 = ArtistStyle.create(
-   artist_id: phil.id, 
-   style_id: realism_style.id
-)
-artist_style_3 = ArtistStyle.create(
-   artist_id: phil.id, 
-   style_id: watercolor_style.id
-)
-artist_style_4 = ArtistStyle.create(
-   artist_id: wren.id, 
-   style_id: traditional_style.id
-)
-artist_style_5 = ArtistStyle.create(
-   artist_id: lain.id, 
-   style_id: traditional_style.id
-)
-artist_style_6 = ArtistStyle.create(
-   artist_id: darren.id, 
-   style_id: traditional_style.id
-)
+200.times do
+   artist = (Artist.all.to_a).sample.id
+   style = (Style.all.to_a).sample.id
+
+   ArtistStyle.create(
+      artist_id: artist,
+      style_id: style,
+   )
+end

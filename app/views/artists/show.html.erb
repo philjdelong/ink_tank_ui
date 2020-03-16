@@ -6,6 +6,7 @@
   <h1>Artist: <%= @artist.name %></h1>
   <p>Hourly rate: <%= number_to_currency(@artist.price_per_hour) %></p>
   <p>Bio: <%= @artist.bio %></p>
+  <p>Shop: <%= link_to "#{@shop.name}", "/shops/#{@shop.id}" %></p>
   <p class='link'><%= link_to 'Appointments', artist_appointments_path(@artist.id) %></p>
 </div>
 

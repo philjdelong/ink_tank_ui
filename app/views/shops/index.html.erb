@@ -1,0 +1,24 @@
+<h1>Ink Tank Shops</h1>
+    <br>
+<div align='center' class='search'>
+    <%= form_tag "/shops", method: :get do %>
+        <%= label_tag 'shop_search' %>
+        <%= text_field_tag 'shop_search' %>
+        <%= submit_tag 'Shop Search' %>
+    <% end %>
+</div>
+    <br><br>
+
+<h1 class='search'>All Shops</h1>
+<span align='left' class='search' id='shops'>
+    <% if @shops.count == 0 %>
+        <p>"No shops match your search. Please enter valid zip."</p>
+    <% else %>
+        <% @shops.each do |shop| %>
+            <p class='link'><%= link_to "#{shop.name}", "/shops/#{shop.id}" %></p>
+            <p>Street: <%= shop.street_address %></p>
+            <p>Zip: <%= shop.zip %></p>
+            <p>City: <%= shop.city %></p>
+        <% end %>
+    <% end %>
+</span>
