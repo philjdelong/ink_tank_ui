@@ -31,7 +31,11 @@ class ShopsController < ApplicationController
   end
 
   def index
-    @shops = Shop.all
+    if params[:shop_search]
+      @shops = Shop.where(zip: params["shop_search"])
+    else
+      @shops = Shop.all
+    end
   end
 
   def update
