@@ -4,11 +4,6 @@ gem 'stripe'
 gem 'jquery-rails'
 
 gem 'faker'
-
-rescue LoadError => e
-  raise e unless ENV['RAILS_ENV'] == "production"
-end
-
 ruby '2.4.1'
 gem 'factory_bot_rails'
 gem 'figaro'
