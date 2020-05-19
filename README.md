@@ -13,10 +13,6 @@
 
 "Ink Tank" is a SaaS platform that is designed to better match Tattoo artists with potential clients. We know that historically, tattoo shops don't spend large amounts of time and money on marketing, so we developed a wep application that allows users to research various tattoo styles to gain a better understanding of what they're looking for. Then we match the user with artists that match their search criteria as well as location. Once the desired artist is found, users can book appointments, send notes, and complete payments all through the app.
 
-## Schema
-<img width="702" alt="Ink Tank Screen Shot" src="">
-
-
 ## Local Deployment
 Follow these instructions in your -nix command line terminal:
 
