@@ -54,7 +54,6 @@ In your browser, navigate to localhost:3000.
  - User-to-user communication for scheduling appointments
  - Services
     - 3rd party OAuth implimentation with less information stored on our side.
-    - 
  - ActiveRecord
     - Join Multiple tables of data
     - Calculate statistics
